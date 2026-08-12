@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Fundo quente tipo papel de comanda, não branco frio de SaaS */
+  --color-paper:      #FFF8F0;
+  --color-paper-dim:  #F5EDE0;
+
+  /* Marca — mesmas cores dos painéis, mantendo consistência */
+  --color-ink:        #1A1A2E;
+  --color-ink-soft:   #2D2D4E;
+  --color-ember:      #FF6B2C;
+  --color-ember-dark: #E05520;
+  --color-ember-light:#FF8C5A;
+
+  /* Verde só pra momentos de "dinheiro direto na sua conta" — usado com moderação */
+  --color-cash:       #0B6B4F;
+
+  --font-display: 'Fraunces', serif;
+  --font-sans:    'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Respeita quem pediu menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Foco visível de teclado — nunca remover */
+:focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 3px;
+}
