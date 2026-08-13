@@ -94,7 +94,7 @@ export default function Hero() {
              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 98%, 96% 100%, 92% 98%, 88% 100%, 84% 98%, 80% 100%, 76% 98%, 72% 100%, 68% 98%, 64% 100%, 60% 98%, 56% 100%, 52% 98%, 48% 100%, 44% 98%, 40% 100%, 36% 98%, 32% 100%, 28% 98%, 24% 100%, 20% 98%, 16% 100%, 12% 98%, 8% 100%, 4% 98%, 0 100%)' }}
         >
           <p className="font-[family-name:var(--font-mono)] text-[11px] tracking-widest text-ink-soft/60 mb-1">COMANDA Nº 001</p>
-          <p className="font-[family-name:var(--font-mono)] text-[11px] text-ink-soft/60 mb-6">eu cardápio · pedido de teste</p>
+          <p className="font-[family-name:var(--font-mono)] text-[11px] text-ink-soft/60 mb-6">Eu Cardápio · pedido de teste</p>
 
           <div className="space-y-4">
             {RECEIPT_LINES.map((line) => (

@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="flex items-center gap-2.5 mb-3">
               <img src="/favicon.png" alt="" className="w-8 h-8 rounded-lg" />
               <p className="font-[family-name:var(--font-display)] text-2xl font-semibold text-paper">
-                eu cardápio
+                Eu Cardápio
               </p>
             </div>
             <p className="text-sm max-w-xs leading-relaxed">
@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-[family-name:var(--font-mono)] text-xs text-paper/40">
-          <span>© {year} eu cardápio — todos os direitos reservados</span>
+          <span>© {year} Eu Cardápio — todos os direitos reservados</span>
           <span>obrigado pela preferência ·</span>
         </div>
       </div>

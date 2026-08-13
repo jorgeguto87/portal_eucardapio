@@ -25,7 +25,7 @@ export default function Nav() {
         <a href="#topo" className="flex items-center gap-2.5">
           <img src="/favicon.png" alt="" className="w-9 h-9 rounded-lg" />
           <span className="font-[family-name:var(--font-display)] text-xl md:text-2xl font-semibold text-ink tracking-tight">
-            eu cardápio
+            Eu Cardápio
           </span>
         </a>
 
