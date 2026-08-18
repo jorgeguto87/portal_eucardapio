@@ -57,7 +57,7 @@ export default function Pricing() {
               Cardápio Digital Completo
             </span>
             <div className="text-right shrink-0">
-              <span className="font-[family-name:var(--font-mono)] text-3xl md:text-4xl font-bold text-ember-dark">R$ 149,90</span>
+              <span className="font-[family-name:var(--font-mono)] text-3xl md:text-4xl font-bold text-ember-dark">R$ 79,90</span>
               <span className="block text-xs text-ink-soft/60 mt-0.5">por mês</span>
             </div>
           </div>
