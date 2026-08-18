@@ -74,7 +74,7 @@ export default function Signup() {
           Seu cardápio no ar hoje
         </h2>
         <p className="text-ink-soft text-center mb-12 max-w-md mx-auto">
-          7 dias grátis, sem cartão de crédito.< /br>Depois disso, R$ 79,90 por mês< /br>cancela quando quiser.
+          7 dias grátis, sem cartão de crédito. Depois disso, R$ 79,90 por mês cancele quando quiser.
         </p>
 
         <form onSubmit={handleSubmit} className="signup-card bg-paper rounded-2xl p-7 md:p-9 shadow-[0_20px_60px_-20px_rgba(26,26,46,0.15)] space-y-5">
