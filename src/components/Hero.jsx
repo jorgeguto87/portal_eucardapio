@@ -19,6 +19,7 @@ export default function Hero() {
         .from('.hero-word', { opacity: 0, y: 28, stagger: 0.06, duration: 0.7 }, '-=0.2')
         .from('.hero-sub', { opacity: 0, y: 16, duration: 0.6 }, '-=0.3')
         .from('.hero-cta', { opacity: 0, y: 12, duration: 0.5 }, '-=0.35')
+        .from('.hero-chips > span', { opacity: 0, y: 10, stagger: 0.08, duration: 0.4 }, '-=0.25')
         .from('.receipt', { opacity: 0, y: 24, rotate: -1.5, duration: 0.6 }, '-=0.5')
         .from('.receipt-line', {
           opacity: 0,
@@ -77,7 +78,7 @@ export default function Hero() {
             direto na sua conta — sem comissão por pedido, sem intermediário segurando seu dinheiro.
           </p>
 
-          <div className="hero-cta flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="hero-cta flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
             <a
               href="#comecar"
               onClick={scrollToSignup}
@@ -86,6 +87,18 @@ export default function Hero() {
               Comece grátis por 7 dias
             </a>
             <span className="text-sm text-ink-soft/70">Sem cartão de crédito pra testar</span>
+          </div>
+
+          <div className="hero-chips flex flex-wrap gap-3">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white border border-ink/10 px-4 py-2 text-sm font-medium text-ink-soft shadow-sm">
+              🍽️ Delivery e mesa
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white border border-ink/10 px-4 py-2 text-sm font-medium text-ink-soft shadow-sm">
+              🎟️ Cupons sob medida
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white border border-ink/10 px-4 py-2 text-sm font-medium text-ink-soft shadow-sm">
+              💰 Cashback automático
+            </span>
           </div>
         </div>
 
