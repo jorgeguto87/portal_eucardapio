@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 
 const RECEIPT_LINES = [
@@ -86,8 +87,14 @@ export default function Hero() {
             >
               Comece grátis por 7 dias
             </a>
-            <span className="text-sm text-ink-soft/70">Sem cartão de crédito pra testar</span>
+            <Link
+              to="/funcionalidades"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-ember-dark transition-colors"
+            >
+              Veja como funciona →
+            </Link>
           </div>
+          <p className="hero-cta text-sm text-ink-soft/70 -mt-6 mb-8">Sem cartão de crédito pra testar</p>
 
           <div className="hero-chips flex flex-wrap gap-3">
             <span className="inline-flex items-center gap-2 rounded-full bg-white border border-ink/10 px-4 py-2 text-sm font-medium text-ink-soft shadow-sm">
