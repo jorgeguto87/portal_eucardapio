@@ -6,8 +6,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 const INCLUI = [
   'Cardápio digital ilimitado',
+  'Pedido por delivery e também na mesa (QR Code)',
   'Atendimento automático no WhatsApp',
   'Pagamento online (Pix e cartão)',
+  'Cupons e cashback pra fidelizar cliente',
   'Painel de pedidos e financeiro',
   'Gestão de equipe e entregadores',
   'Suporte por WhatsApp',
