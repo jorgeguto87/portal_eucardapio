@@ -58,7 +58,7 @@ export default function Nav() {
             onClick={scrollToSignup}
             className="inline-block text-sm font-semibold text-paper bg-ink hover:bg-ink-soft transition-colors rounded-full px-5 py-2.5"
           >
-            Comece grátis
+            Eu quero
           </a>
         </div>
       </nav>
