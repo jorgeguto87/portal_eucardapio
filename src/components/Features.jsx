@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -90,6 +91,15 @@ export default function Features() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link
+            to="/funcionalidades"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-ember-dark transition-colors"
+          >
+            Ver todas as funcionalidades em detalhe →
+          </Link>
         </div>
       </div>
     </section>
