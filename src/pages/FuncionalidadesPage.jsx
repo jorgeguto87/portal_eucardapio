@@ -30,7 +30,7 @@ const SECTIONS = [
     id: 'pagamento',
     tag: 'pagamento sem intermediário',
     title: 'O dinheiro do seu pedido é seu — literalmente',
-    body: 'Escolha entre Mercado Pago, PagBank ou InfinitePay: o pagamento cai direto na sua própria conta, sem passar pela nossa, sem prazo de repasse, sem comissão por venda.',
+    body: 'Escolha entre Mercado Pago ou InfinitePay e em breve mais opções para você: o pagamento cai direto na sua própria conta, sem passar pela nossa, sem prazo de repasse, sem comissão por venda.',
     images: [{ src: '/funcionalidades/tela-pagamentos-pc.png', alt: 'Contas de pagamento conectáveis' }],
   },
   {
