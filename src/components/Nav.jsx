@@ -45,7 +45,7 @@ export default function Nav() {
             to="/funcionalidades"
             className="text-sm font-medium text-ink-soft hover:text-ink transition-colors px-2 sm:px-3 py-2"
           >
-            Funcionalidades
+            Detalhes
           </Link>
           <a
             href={PAINEL_URL}
