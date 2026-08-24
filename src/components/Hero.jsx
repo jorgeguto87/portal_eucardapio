@@ -58,7 +58,7 @@ export default function Hero() {
             Cardápio digital para restaurantes
           </p>
 
-          <h1 className="font-[family-name:var(--font-display)] text-[2.6rem] leading-[1.08] md:text-6xl md:leading-[1.05] font-semibold text-ink tracking-tight mb-6">
+          <h1 className="font-[family-name:var(--font-display)] text-[clamp(1.85rem,7.5vw,3.75rem)] leading-[1.1] font-semibold text-ink tracking-tight mb-6">
             {'O cardápio é seu.'.split(' ').map((w, i) => (
               <span key={i} className="hero-word inline-block mr-[0.28em]">{w}</span>
             ))}
