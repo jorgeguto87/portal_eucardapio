@@ -63,7 +63,7 @@ export default function HowItWorks() {
         <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.2em] uppercase text-ember-dark mb-4">
           Do pedido à entrega
         </p>
-        <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-semibold text-ink tracking-tight mb-16 max-w-xl">
+        <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.7rem,6vw,3rem)] font-semibold text-ink tracking-tight mb-16 max-w-xl">
           Quatro passos, e nenhum deles é manual
         </h2>
 
