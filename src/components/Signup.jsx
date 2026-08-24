@@ -70,7 +70,7 @@ export default function Signup() {
         <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.2em] uppercase text-ember-dark mb-4 text-center">
           Comece agora
         </p>
-        <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-semibold text-ink tracking-tight mb-4 text-center">
+        <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.7rem,6vw,3rem)] font-semibold text-ink tracking-tight mb-4 text-center">
           Seu cardápio no ar hoje
         </h2>
         <p className="text-ink-soft text-center mb-12 max-w-md mx-auto">
