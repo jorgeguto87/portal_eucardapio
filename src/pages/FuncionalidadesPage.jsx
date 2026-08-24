@@ -80,7 +80,7 @@ export default function FuncionalidadesPage() {
         <span className="font-[family-name:var(--font-mono)] text-xs font-semibold uppercase tracking-[0.2em] text-ember-dark">
           Funcionalidades
         </span>
-        <h1 className="mx-auto mt-4 max-w-2xl font-[family-name:var(--font-display)] text-3xl font-semibold leading-tight text-ink sm:text-5xl">
+        <h1 className="mx-auto mt-4 max-w-2xl font-[family-name:var(--font-display)] text-[clamp(1.7rem,6.5vw,3rem)] font-semibold leading-tight text-ink">
           No computador do balcão.<br className="hidden sm:block" /> No celular do seu bolso.
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft/80 sm:text-lg">
@@ -109,7 +109,7 @@ export default function FuncionalidadesPage() {
                   <span className="font-[family-name:var(--font-mono)] text-xs font-semibold uppercase tracking-[0.15em] text-ember-dark">
                     {s.tag}
                   </span>
-                  <h2 className="mt-3 font-[family-name:var(--font-display)] text-2xl font-semibold leading-tight text-ink sm:text-3xl">
+                  <h2 className="mt-3 font-[family-name:var(--font-display)] text-[clamp(1.25rem,5vw,1.875rem)] font-semibold leading-tight text-ink">
                     {s.title}
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-ink-soft/80">{s.body}</p>
@@ -126,7 +126,7 @@ export default function FuncionalidadesPage() {
                   <span className="font-[family-name:var(--font-mono)] text-xs font-semibold uppercase tracking-[0.15em] text-ember-dark">
                     {s.tag}
                   </span>
-                  <h2 className="mx-auto mt-3 max-w-2xl font-[family-name:var(--font-display)] text-2xl font-semibold leading-tight text-ink sm:text-3xl">
+                  <h2 className="mx-auto mt-3 max-w-2xl font-[family-name:var(--font-display)] text-[clamp(1.25rem,5vw,1.875rem)] font-semibold leading-tight text-ink">
                     {s.title}
                   </h2>
                   <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-soft/80">{s.body}</p>
