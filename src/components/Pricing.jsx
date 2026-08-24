@@ -49,17 +49,17 @@ export default function Pricing() {
         <p className="font-[family-name:var(--font-mono)] text-xs tracking-[0.2em] uppercase text-ember-light mb-4">
           O item mais simples do nosso cardápio
         </p>
-        <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-semibold tracking-tight mb-16">
+        <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.7rem,6vw,3rem)] font-semibold tracking-tight mb-16">
           Um preço só. Sem pegadinha.
         </h2>
 
         <div className="price-card bg-paper text-ink rounded-2xl p-8 md:p-10 text-left shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
-          <div className="flex items-baseline justify-between gap-4 pb-6 mb-6 border-b border-dashed border-ink/15">
-            <span className="font-[family-name:var(--font-display)] text-2xl font-semibold">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 pb-6 mb-6 border-b border-dashed border-ink/15">
+            <span className="font-[family-name:var(--font-display)] text-[clamp(1.15rem,4.5vw,1.5rem)] font-semibold">
               Cardápio Digital Completo
             </span>
             <div className="text-right shrink-0">
-              <span className="font-[family-name:var(--font-mono)] text-3xl md:text-4xl font-bold text-ember-dark">R$ 79,90</span>
+              <span className="font-[family-name:var(--font-mono)] text-[clamp(1.5rem,6vw,2.25rem)] font-bold text-ember-dark">R$ 79,90</span>
               <span className="block text-xs text-ink-soft/60 mt-0.5">por mês</span>
             </div>
           </div>
