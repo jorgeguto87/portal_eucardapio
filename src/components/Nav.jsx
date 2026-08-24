@@ -32,31 +32,31 @@ export default function Nav() {
         scrolled ? 'bg-paper/90 backdrop-blur-md shadow-[0_1px_0_rgba(26,26,46,0.08)]' : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5">
-          <img src="/favicon.png" alt="" className="w-9 h-9 rounded-lg" />
-          <span className="font-[family-name:var(--font-display)] text-xl md:text-2xl font-semibold text-ink tracking-tight">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 md:px-10 h-16 md:h-20 flex items-center justify-between gap-2">
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
+          <img src="/favicon.png" alt="" className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg shrink-0" />
+          <span className="font-[family-name:var(--font-display)] text-[clamp(0.95rem,4vw,1.5rem)] font-semibold text-ink tracking-tight whitespace-nowrap">
             Eu Cardápio
           </span>
         </Link>
 
-        <div className="flex items-center gap-3 md:gap-5">
+        <div className="flex items-center gap-1 sm:gap-3 md:gap-5 shrink-0">
           <Link
             to="/funcionalidades"
-            className="text-sm font-medium text-ink-soft hover:text-ink transition-colors px-2 sm:px-3 py-2"
+            className="text-xs sm:text-sm font-medium text-ink-soft hover:text-ink transition-colors px-1.5 sm:px-3 py-2 whitespace-nowrap"
           >
             Detalhes
           </Link>
           <a
             href={PAINEL_URL}
-            className="hidden sm:inline-block text-sm font-medium text-ink-soft hover:text-ink transition-colors px-3 py-2"
+            className="hidden sm:inline-block text-sm font-medium text-ink-soft hover:text-ink transition-colors px-3 py-2 whitespace-nowrap"
           >
             Entrar
           </a>
           <a
             href="#comecar"
             onClick={scrollToSignup}
-            className="inline-block text-sm font-semibold text-paper bg-ink hover:bg-ink-soft transition-colors rounded-full px-5 py-2.5"
+            className="inline-block text-xs sm:text-sm font-semibold text-paper bg-ink hover:bg-ink-soft transition-colors rounded-full px-3 sm:px-5 py-2 sm:py-2.5 whitespace-nowrap"
           >
             Eu quero
           </a>
