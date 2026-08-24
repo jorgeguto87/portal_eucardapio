@@ -1,5 +1,20 @@
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { PAINEL_URL } from '../lib/api'
+
 export default function Footer() {
   const year = new Date().getFullYear()
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const scrollToSignup = (e) => {
+    e.preventDefault()
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => document.getElementById('comecar')?.scrollIntoView({ behavior: 'smooth' }), 100)
+      return
+    }
+    document.getElementById('comecar')?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <footer className="bg-ink text-paper/70 px-6 md:px-10 py-14">
@@ -22,14 +37,15 @@ export default function Footer() {
             <div>
               <p className="font-[family-name:var(--font-mono)] text-[11px] tracking-widest uppercase text-paper/40 mb-3">Produto</p>
               <ul className="space-y-2 text-sm">
-                <li><a href="#topo" className="hover:text-paper transition-colors">Início</a></li>
-                <li><a href="#comecar" className="hover:text-paper transition-colors">Comece grátis</a></li>
+                <li><Link to="/" className="hover:text-paper transition-colors">Início</Link></li>
+                <li><Link to="/funcionalidades" className="hover:text-paper transition-colors">Detalhes</Link></li>
+                <li><a href="#comecar" onClick={scrollToSignup} className="hover:text-paper transition-colors">Comece grátis</a></li>
               </ul>
             </div>
             <div>
               <p className="font-[family-name:var(--font-mono)] text-[11px] tracking-widest uppercase text-paper/40 mb-3">Conta</p>
               <ul className="space-y-2 text-sm">
-                <li><a href="https://paineleucardapio.devaugusto.com.br" className="hover:text-paper transition-colors">Entrar no painel</a></li>
+                <li><a href={PAINEL_URL} className="hover:text-paper transition-colors">Entrar no painel</a></li>
               </ul>
             </div>
           </div>
