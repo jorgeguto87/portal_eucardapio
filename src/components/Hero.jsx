@@ -110,7 +110,7 @@ export default function Hero() {
         </div>
 
         {/* A comanda — elemento de assinatura da página */}
-        <div className="receipt relative bg-white rounded-sm shadow-[0_20px_60px_-15px_rgba(26,26,46,0.25)] px-7 py-8 max-w-sm mx-auto md:mx-0 md:justify-self-end"
+        <div className="receipt relative bg-white rounded-sm shadow-[0_20px_60px_-15px_rgba(26,26,46,0.25)] px-5 sm:px-7 py-8 w-full max-w-sm mx-auto md:mx-0 md:justify-self-end"
              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 98%, 96% 100%, 92% 98%, 88% 100%, 84% 98%, 80% 100%, 76% 98%, 72% 100%, 68% 98%, 64% 100%, 60% 98%, 56% 100%, 52% 98%, 48% 100%, 44% 98%, 40% 100%, 36% 98%, 32% 100%, 28% 98%, 24% 100%, 20% 98%, 16% 100%, 12% 98%, 8% 100%, 4% 98%, 0 100%)' }}
         >
           <p className="font-[family-name:var(--font-mono)] text-[11px] tracking-widest text-ink-soft/60 mb-1">COMANDA Nº 001</p>
@@ -118,12 +118,12 @@ export default function Hero() {
 
           <div className="space-y-4">
             {RECEIPT_LINES.map((line) => (
-              <div key={line.label} className="receipt-line flex items-baseline gap-2">
-                <span className={`font-[family-name:var(--font-mono)] text-[13px] whitespace-nowrap ${line.highlight ? 'text-ember-dark font-semibold' : 'text-ink-soft'}`}>
+              <div key={line.label} className="receipt-line flex items-baseline gap-1.5 sm:gap-2">
+                <span className={`font-[family-name:var(--font-mono)] text-[clamp(10.5px,3vw,13px)] whitespace-nowrap ${line.highlight ? 'text-ember-dark font-semibold' : 'text-ink-soft'}`}>
                   {line.label}
                 </span>
                 <span className="dot-leader flex-1 border-b border-dotted border-ink-soft/30 origin-left" style={{ transform: 'scaleX(0)' }} />
-                <span className={`font-[family-name:var(--font-mono)] text-[13px] whitespace-nowrap ${line.highlight ? 'text-ember-dark font-bold' : 'text-ink font-medium'}`}>
+                <span className={`font-[family-name:var(--font-mono)] text-[clamp(10.5px,3vw,13px)] whitespace-nowrap ${line.highlight ? 'text-ember-dark font-bold' : 'text-ink font-medium'}`}>
                   {line.value}
                 </span>
               </div>
