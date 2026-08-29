@@ -37,7 +37,7 @@ export default function ContatoPage() {
       <section className="mx-auto mt-16 max-w-xl px-6 md:px-10">
         <div className="grid gap-6 sm:grid-cols-2 mb-12">
           <a
-            href="https://wa.me/5521999999999"
+            href="https://wa.me/5521999363578"
             className="rounded-2xl bg-paper-dim p-6 hover:bg-white transition-colors border border-ink/10"
           >
             <span className="text-2xl mb-3 block">💬</span>
@@ -50,7 +50,7 @@ export default function ContatoPage() {
           >
             <span className="text-2xl mb-3 block">✉️</span>
             <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-ink mb-1">E-mail</h3>
-            <p className="text-sm text-ink-soft">contato@eucardapio.com.br</p>
+            <p className="text-sm text-ink-soft">eucardapio@gmail.com</p>
           </a>
         </div>
 
