@@ -33,12 +33,26 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex gap-16">
+          <div className="flex flex-wrap gap-10 md:gap-16">
             <div>
-              <p className="font-[family-name:var(--font-mono)] text-[11px] tracking-widest uppercase text-paper/40 mb-3">Produto</p>
+              <p className="font-[family-name:var(--font-mono)] text-[11px] tracking-widest uppercase text-paper/40 mb-3">Funcionalidades</p>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/" className="hover:text-paper transition-colors">Início</Link></li>
-                <li><Link to="/funcionalidades" className="hover:text-paper transition-colors">Detalhes</Link></li>
+                <li><Link to="/cardapio-digital" className="hover:text-paper transition-colors">Cardápio Digital</Link></li>
+                <li><Link to="/pedido-whatsapp" className="hover:text-paper transition-colors">Pedido pelo WhatsApp</Link></li>
+                <li><Link to="/pagamento-online" className="hover:text-paper transition-colors">Pagamento Online</Link></li>
+                <li><Link to="/qr-code-mesa" className="hover:text-paper transition-colors">QR Code na Mesa</Link></li>
+                <li><Link to="/sistema-delivery" className="hover:text-paper transition-colors">Sistema de Delivery</Link></li>
+                <li><Link to="/cashback-fidelizacao" className="hover:text-paper transition-colors">Cashback e Fidelização</Link></li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-[family-name:var(--font-mono)] text-[11px] tracking-widest uppercase text-paper/40 mb-3">Empresa</p>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/precos" className="hover:text-paper transition-colors">Preços</Link></li>
+                <li><Link to="/sobre" className="hover:text-paper transition-colors">Sobre</Link></li>
+                <li><Link to="/blog" className="hover:text-paper transition-colors">Blog</Link></li>
+                <li><Link to="/contato" className="hover:text-paper transition-colors">Contato</Link></li>
+                <li><Link to="/funcionalidades" className="hover:text-paper transition-colors">Todas as funcionalidades</Link></li>
                 <li><a href="#comecar" onClick={scrollToSignup} className="hover:text-paper transition-colors">Comece grátis</a></li>
               </ul>
             </div>
