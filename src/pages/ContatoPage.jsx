@@ -1,17 +1,34 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { sendContactMessage } from '../lib/api'
 
 const SITE_URL = 'https://portal.eucardapio.com.br'
 
 export default function ContatoPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [sent, setSent] = useState(false)
+  const [enviando, setEnviando] = useState(false)
+  const [erro, setErro] = useState(null)
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSent(true)
+    setErro(null)
+    setEnviando(true)
+    try {
+      await sendContactMessage(form)
+      setSent(true)
+    } catch (err) {
+      // Mostra o erro de verdade — nunca finge sucesso quando o envio
+      // realmente falhou (era exatamente esse o bug antes desse ajuste)
+      setErro(
+        err.response?.data?.error?.message ||
+        'Não foi possível enviar sua mensagem agora. Tenta pelo WhatsApp, por favor.'
+      )
+    } finally {
+      setEnviando(false)
+    }
   }
 
   return (
@@ -62,6 +79,11 @@ export default function ContatoPage() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="rounded-2xl bg-white p-7 md:p-9 shadow-[0_20px_60px_-20px_rgba(26,26,46,0.15)] border border-ink/10 space-y-5">
+            {erro && (
+              <div className="rounded-xl bg-danger/10 border border-danger/20 px-4 py-3 text-sm text-danger">
+                {erro}
+              </div>
+            )}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-ink-soft mb-1.5">Seu nome</label>
               <input
@@ -88,9 +110,10 @@ export default function ContatoPage() {
             </div>
             <button
               type="submit"
-              className="w-full bg-ember hover:bg-ember-dark transition-colors text-white font-semibold rounded-full px-6 py-4"
+              disabled={enviando}
+              className="w-full bg-ember hover:bg-ember-dark transition-colors text-white font-semibold rounded-full px-6 py-4 disabled:opacity-60"
             >
-              Enviar mensagem
+              {enviando ? 'Enviando...' : 'Enviar mensagem'}
             </button>
           </form>
         )}
