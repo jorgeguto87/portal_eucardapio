@@ -13,4 +13,9 @@ export const signup = async (payload) => {
   return data.data
 }
 
+export const sendContactMessage = async (payload) => {
+  const { data } = await api.post('/contact', payload)
+  return data.data
+}
+
 export default api
