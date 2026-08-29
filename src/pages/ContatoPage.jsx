@@ -45,7 +45,7 @@ export default function ContatoPage() {
             <p className="text-sm text-ink-soft">Resposta em minutos, no horário comercial.</p>
           </a>
           <a
-            href="mailto:eucardapio@gmail.com.br"
+            href="mailto:eucardapio@gmail.com"
             className="rounded-2xl bg-paper-dim p-6 hover:bg-white transition-colors border border-ink/10"
           >
             <span className="text-2xl mb-3 block">✉️</span>
