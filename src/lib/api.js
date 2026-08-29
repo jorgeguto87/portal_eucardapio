@@ -6,7 +6,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'https://servereucardapio.devaug
 
 const api = axios.create({ baseURL: API_URL })
 
-export const PAINEL_URL = import.meta.env.VITE_PAINEL_URL || 'https://paineleucardapio.devaugusto.com.br'
+export const PAINEL_URL = import.meta.env.VITE_PAINEL_URL || 'https://painel.eucardapio.com.br'
 
 export const signup = async (payload) => {
   const { data } = await api.post('/signup', payload)
