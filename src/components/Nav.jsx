@@ -57,6 +57,8 @@ export default function Nav() {
                 <Link to="/qr-code-mesa" className="block px-4 py-2 text-sm text-ink-soft hover:bg-paper-dim hover:text-ink transition-colors">QR Code na Mesa</Link>
                 <Link to="/sistema-delivery" className="block px-4 py-2 text-sm text-ink-soft hover:bg-paper-dim hover:text-ink transition-colors">Sistema de Delivery</Link>
                 <Link to="/cashback-fidelizacao" className="block px-4 py-2 text-sm text-ink-soft hover:bg-paper-dim hover:text-ink transition-colors">Cashback e Fidelização</Link>
+                <Link to="/pedidos-balcao" className="block px-4 py-2 text-sm text-ink-soft hover:bg-paper-dim hover:text-ink transition-colors">Pedidos no Balcão</Link>
+                <Link to="/multiplas-impressoras" className="block px-4 py-2 text-sm text-ink-soft hover:bg-paper-dim hover:text-ink transition-colors">Impressão em Múltiplas Impressoras</Link>
               </div>
             </div>
           </div>
@@ -114,6 +116,8 @@ export default function Nav() {
           <Link to="/qr-code-mesa" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">QR Code na Mesa</Link>
           <Link to="/sistema-delivery" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">Sistema de Delivery</Link>
           <Link to="/cashback-fidelizacao" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">Cashback e Fidelização</Link>
+          <Link to="/pedidos-balcao" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">Pedidos no Balcão</Link>
+          <Link to="/multiplas-impressoras" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">Impressão em Múltiplas Impressoras</Link>
           <div className="border-t border-ink/10 my-3" />
           <Link to="/precos" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">Preços</Link>
           <Link to="/sobre" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">Sobre</Link>
