@@ -4,7 +4,7 @@ const SITE_URL = 'https://portal.eucardapio.com.br'
 
 const seo = {
   title: 'Sistema de Delivery Próprio — Sem Comissão por Pedido | Eu Cardápio',
-  description: 'Sistema completo de delivery para restaurantes: cardápio digital, pedido por WhatsApp, pagamento online, gestão de entregadores e painel financeiro. Tudo por R$ 79,90/mês.',
+  description: 'Sistema completo de delivery para restaurantes: cardápio digital, pedido por WhatsApp, pagamento online, gestão de entregadores e painel financeiro. Tudo por R$ 129,90/mês.',
   canonical: `${SITE_URL}/sistema-delivery`,
 }
 
@@ -41,7 +41,7 @@ const solution = {
 const benefits = {
   title: 'Por que ter delivery próprio',
   items: [
-    { icon: '💸', title: 'Custo fixo', body: 'R$ 79,90 por mês, não importa quantos pedidos você receba. Vendeu 10 ou 1.000, o custo é o mesmo.' },
+    { icon: '💸', title: 'Custo fixo', body: 'R$ 129,90 por mês, não importa quantos pedidos você receba. Vendeu 10 ou 1.000, o custo é o mesmo.' },
     { icon: '👥', title: 'Cliente é seu', body: 'O cliente pede pelo seu WhatsApp, vê sua marca, recebe suas promoções. Ele volta direto, não pelo app.' },
     { icon: '🚚', title: 'Entrega organizada', body: 'Atribua pedidos ao entregador, acompanhe a fila em tempo real, e o cliente recebe cada atualização no WhatsApp.' },
     { icon: '📈', title: 'Dados são seus', body: 'Você vê o que vende mais, quando vende, quem compra. Usa isso pra criar promoções que funcionam de verdade.' },
@@ -64,7 +64,7 @@ const faq = [
   { q: 'Funciona para restaurante que nunca teve delivery?', a: 'Sim. O sistema é completo: cardápio, pedido, pagamento, entrega e gestão. Você começa do zero com tudo que precisa.' },
   { q: 'Preciso de equipe grande pra gerenciar?', a: 'Não. O sistema é feito para ser simples. Uma pessoa consegue gerenciar pedidos, pagamentos e entregadores no painel.' },
   { q: 'Dá pra integrar com meus entregadores atuais?', a: 'Sim. Você cadastra seus entregadores no sistema e atribui os pedidos a eles. O entregador recebe a rota pelo WhatsApp.' },
-  { q: 'Quanto custa para começar?', a: 'R$ 79,90 por mês, com 7 dias grátis para testar. Sem taxa de setup, sem comissão por pedido, sem cartão de crédito para o teste.' },
+  { q: 'Quanto custa para começar?', a: 'R$ 129,90 por mês, com 7 dias grátis para testar. Sem taxa de setup, sem comissão por pedido, sem cartão de crédito para o teste.' },
 ]
 
 export default function SistemaDeliveryPage() {
