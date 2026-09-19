@@ -17,6 +17,8 @@ import PagamentoOnlinePage from './pages/PagamentoOnlinePage'
 import QrCodeMesaPage from './pages/QrCodeMesaPage'
 import SistemaDeliveryPage from './pages/SistemaDeliveryPage'
 import CashbackFidelizacaoPage from './pages/CashbackFidelizacaoPage'
+import PedidosBalcaoPage from './pages/PedidosBalcaoPage'
+import MultiplasImpressorasPage from './pages/MultiplasImpressorasPage'
 import PrecosPage from './pages/PrecosPage'
 import SobrePage from './pages/SobrePage'
 import ContatoPage from './pages/ContatoPage'
@@ -52,6 +54,8 @@ export default function App() {
             <Route path="/qr-code-mesa" element={<QrCodeMesaPage />} />
             <Route path="/sistema-delivery" element={<SistemaDeliveryPage />} />
             <Route path="/cashback-fidelizacao" element={<CashbackFidelizacaoPage />} />
+            <Route path="/pedidos-balcao" element={<PedidosBalcaoPage />} />
+            <Route path="/multiplas-impressoras" element={<MultiplasImpressorasPage />} />
             <Route path="/precos" element={<PrecosPage />} />
             <Route path="/sobre" element={<SobrePage />} />
             <Route path="/contato" element={<ContatoPage />} />
