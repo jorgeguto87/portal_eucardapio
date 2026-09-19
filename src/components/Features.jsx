@@ -27,6 +27,16 @@ const FEATURES = [
     body: 'O mesmo cardápio, agora também pro salão — cliente escaneia, pede, e o pedido cai direto na cozinha. Sem papel, sem confusão de comanda.',
   },
   {
+    tag: 'balcão',
+    title: 'Pedido no balcão também entra no sistema',
+    body: 'Cliente chegou e pediu na hora? Lança o pedido direto no painel — mesa, avulso ou pra viagem — e ele entra no mesmo fluxo de cozinha e financeiro.',
+  },
+  {
+    tag: 'impressão',
+    title: 'Comanda sai sozinha na impressora certa',
+    body: 'Programa próprio pra Windows imprime o pedido automaticamente em até 3 impressoras — cozinha, bar, balcão — sem digitar de novo.',
+  },
+  {
     tag: 'fidelização',
     title: 'Cupons e cashback que trazem o cliente de volta',
     body: 'Crie promoções do seu jeito — desconto ou item grátis — e deixe o cliente acumular cashback pra próxima compra. Você decide as regras, o sistema cuida do resto.',
