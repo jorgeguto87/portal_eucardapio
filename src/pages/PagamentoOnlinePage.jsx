@@ -46,7 +46,7 @@ const benefits = {
     { icon: '📊', title: 'Relatório claro', body: 'Cada transação aparece no painel: valor, forma de pagamento, horário. Sem decifrar planilha.' },
     { icon: '🔄', title: 'Principais Bancos Digitais', body: 'Mercado Pago ou InfinitePay — você escolhe a que tem a melhor taxa pra você. E pode trocar quando quiser.' },
     { icon: '⚡', title: 'Pix instantâneo', body: 'Pix cai na hora, sem espera. O cliente paga e o pedido já está liberado pra cozinha.' },
-    { icon: '🏷️', title: 'Custo fixo', body: 'Você paga a assinatura do Eu Cardápio (R$ 79,90/mês) e a taxa da sua plataforma de pagamento. Sem surpresa.' },
+    { icon: '🏷️', title: 'Custo fixo', body: 'Você paga a assinatura do Eu Cardápio (R$ 129,90/mês) e a taxa da sua plataforma de pagamento. Sem surpresa.' },
   ],
 }
 
