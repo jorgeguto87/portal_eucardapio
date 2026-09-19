@@ -43,6 +43,8 @@ export default function Footer() {
                 <li><Link to="/qr-code-mesa" className="hover:text-paper transition-colors">QR Code na Mesa</Link></li>
                 <li><Link to="/sistema-delivery" className="hover:text-paper transition-colors">Sistema de Delivery</Link></li>
                 <li><Link to="/cashback-fidelizacao" className="hover:text-paper transition-colors">Cashback e Fidelização</Link></li>
+                <li><Link to="/pedidos-balcao" className="hover:text-paper transition-colors">Pedidos no Balcão</Link></li>
+                <li><Link to="/multiplas-impressoras" className="hover:text-paper transition-colors">Impressão em Múltiplas Impressoras</Link></li>
               </ul>
             </div>
             <div>
