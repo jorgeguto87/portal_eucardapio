@@ -10,9 +10,10 @@ const SITE_URL = 'https://portal.eucardapio.com.br'
 
 const INCLUI = [
   'Cardápio digital ilimitado',
-  'Pedido por delivery e também na mesa (QR Code)',
+  'Pedido por delivery, na mesa (QR Code) e no balcão',
   'Atendimento automático no WhatsApp',
   'Pagamento online (Pix e cartão)',
+  'Impressão automática em até 3 impressoras',
   'Cupons e cashback pra fidelizar cliente',
   'Painel de pedidos e financeiro',
   'Gestão de equipe e entregadores',
@@ -26,7 +27,7 @@ const COMPARISON = [
   { feature: 'Cardápio digital próprio', eucardapio: 'Sim', ifood: 'Não', competidor: 'Parcial' },
   { feature: 'WhatsApp automático', eucardapio: 'Sim', ifood: 'Não', competidor: 'Não' },
   { feature: 'QR Code na mesa', eucardapio: 'Sim', ifood: 'Não', competidor: 'Parcial' },
-  { feature: 'Custo mensal fixo', eucardapio: 'R$ 79,90', ifood: 'Variável', competidor: 'Variável' },
+  { feature: 'Custo mensal fixo', eucardapio: 'R$ 129,90', ifood: 'Variável', competidor: 'Variável' },
 ]
 
 export default function PrecosPage() {
@@ -56,8 +57,8 @@ export default function PrecosPage() {
   return (
     <div ref={scope} className="pt-28 pb-24">
       <Helmet>
-        <title>Preços — R$ 79,90/mês, Sem Comissão por Pedido | Eu Cardápio</title>
-        <meta name="description" content="Plano único: R$ 79,90 por mês. Cardápio digital, WhatsApp automático, pagamento online, QR Code na mesa, cupons e cashback. Sem comissão por venda. 7 dias grátis." />
+        <title>Preços — R$ 129,90/mês, Sem Comissão por Pedido | Eu Cardápio</title>
+        <meta name="description" content="Plano único: R$ 129,90 por mês. Cardápio digital, WhatsApp automático, pagamento online, QR Code na mesa, pedidos no balcão, impressão em até 3 impressoras, cupons e cashback. Sem comissão por venda. 7 dias grátis." />
         <link rel="canonical" href={`${SITE_URL}/precos`} />
       </Helmet>
 
@@ -80,7 +81,7 @@ export default function PrecosPage() {
               Cardápio Digital Completo
             </span>
             <div className="text-right shrink-0">
-              <span className="font-[family-name:var(--font-mono)] text-[clamp(1.5rem,6vw,2.25rem)] font-bold text-ember-dark">R$ 79,90</span>
+              <span className="font-[family-name:var(--font-mono)] text-[clamp(1.5rem,6vw,2.25rem)] font-bold text-ember-dark">R$ 129,90</span>
               <span className="block text-xs text-ink-soft/60 mt-0.5">por mês</span>
             </div>
           </div>
