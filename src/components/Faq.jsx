@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 const FAQ_ITEMS = [
   {
     q: 'O Eu Cardápio cobra comissão por pedido?',
-    a: 'Não. A cobrança é uma assinatura mensal fixa (R$ 79,90) — vendeu mais, o custo continua o mesmo, diferente de aplicativo de entrega que cobra uma porcentagem de cada venda.',
+    a: 'Não. A cobrança é uma assinatura mensal fixa (R$ 129,90) — vendeu mais, o custo continua o mesmo, diferente de aplicativo de entrega que cobra uma porcentagem de cada venda.',
   },
   {
     q: 'Meu cliente precisa instalar algum aplicativo?',
