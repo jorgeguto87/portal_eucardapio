@@ -6,9 +6,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 const INCLUI = [
   'Cardápio digital ilimitado',
-  'Pedido por delivery e também na mesa (QR Code)',
+  'Pedido por delivery, na mesa (QR Code) e no balcão',
   'Atendimento automático no WhatsApp',
   'Pagamento online (Pix e cartão)',
+  'Impressão automática em até 3 impressoras',
   'Cupons e cashback pra fidelizar cliente',
   'Painel de pedidos e financeiro',
   'Gestão de equipe e entregadores',
@@ -59,7 +60,7 @@ export default function Pricing() {
               Cardápio Digital Completo
             </span>
             <div className="text-right shrink-0">
-              <span className="font-[family-name:var(--font-mono)] text-[clamp(1.5rem,6vw,2.25rem)] font-bold text-ember-dark">R$ 79,90</span>
+              <span className="font-[family-name:var(--font-mono)] text-[clamp(1.5rem,6vw,2.25rem)] font-bold text-ember-dark">R$ 129,90</span>
               <span className="block text-xs text-ink-soft/60 mt-0.5">por mês</span>
             </div>
           </div>
