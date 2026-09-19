@@ -64,7 +64,7 @@ const faq = [
   { q: 'O cliente precisa de um cartão ou app?', a: 'Não. O cashback é automático e digital. O cliente acumula e consulta o saldo pelo Cardápio Digital, sem baixar nada nem carregar cartão.' },
   { q: 'Posso criar cupons para ocasiões específicas?', a: 'Sim. Você pode criar cupons de desconto, item grátis, primeira compra, aniversário — o que fizer sentido para o seu restaurante.' },
   { q: 'Consigo ver se a fidelização está funcionando?', a: 'Sim. O painel mostra quantos clientes voltaram, quantas vezes pediram e quanto gastaram. Você mede o retorno antes de decidir continuar.' },
-  { q: 'Tem limite de cupons ou clientes no plano?', a: 'Não. Cupons e cashback são inclusos na assinatura de R$ 79,90/mês, sem limite de uso. Você cria quantos cupons quiser.' },
+  { q: 'Tem limite de cupons ou clientes no plano?', a: 'Não. Cupons e cashback são inclusos na assinatura de R$ 129,90/mês, sem limite de uso. Você cria quantos cupons quiser.' },
 ]
 
 export default function CashbackFidelizacaoPage() {
