@@ -5,6 +5,6 @@
     { "source": "/blog/:slug", "destination": "/api/blog/:slug" },
     { "source": "/blog/:slug/", "destination": "/api/blog/:slug" },
     { "source": "/sitemap.xml", "destination": "/api/sitemap" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
