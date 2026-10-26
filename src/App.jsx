@@ -22,7 +22,6 @@ import MultiplasImpressorasPage from './pages/MultiplasImpressorasPage'
 import PrecosPage from './pages/PrecosPage'
 import SobrePage from './pages/SobrePage'
 import ContatoPage from './pages/ContatoPage'
-import BlogPage from './pages/BlogPage'
 
 function HomePage() {
   return (
@@ -59,7 +58,7 @@ export default function App() {
             <Route path="/precos" element={<PrecosPage />} />
             <Route path="/sobre" element={<SobrePage />} />
             <Route path="/contato" element={<ContatoPage />} />
-            <Route path="/blog" element={<BlogPage />} />
+            {/* /blog e /blog/:slug são páginas do servidor (api/blog, ver vercel.json). */}
           </Routes>
           <Footer />
         </div>

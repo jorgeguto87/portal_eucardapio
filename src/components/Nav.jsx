@@ -64,7 +64,8 @@ export default function Nav() {
           </div>
           <Link to="/precos" className={navLinkClass}>Preços</Link>
           <Link to="/sobre" className={navLinkClass}>Sobre</Link>
-          <Link to="/blog" className={navLinkClass}>Blog</Link>
+          {/* <a> (recarga completa): o blog é renderizado no servidor, não pela SPA */}
+          <a href="/blog" className={navLinkClass}>Blog</a>
           <a
             href={PAINEL_URL}
             className="text-sm font-medium text-ink-soft hover:text-ink transition-colors px-3 py-2 whitespace-nowrap"
@@ -121,7 +122,7 @@ export default function Nav() {
           <div className="border-t border-ink/10 my-3" />
           <Link to="/precos" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">Preços</Link>
           <Link to="/sobre" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">Sobre</Link>
-          <Link to="/blog" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">Blog</Link>
+          <a href="/blog" className="block py-2 text-sm text-ink-soft hover:text-ink">Blog</a>
           <Link to="/contato" onClick={() => setMenuOpen(false)} className="block py-2 text-sm text-ink-soft hover:text-ink">Contato</Link>
           <a href={PAINEL_URL} className="block py-2 text-sm text-ink-soft hover:text-ink">Entrar no painel</a>
         </div>

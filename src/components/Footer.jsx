@@ -52,7 +52,7 @@ export default function Footer() {
               <ul className="space-y-2 text-sm">
                 <li><Link to="/precos" className="hover:text-paper transition-colors">Preços</Link></li>
                 <li><Link to="/sobre" className="hover:text-paper transition-colors">Sobre</Link></li>
-                <li><Link to="/blog" className="hover:text-paper transition-colors">Blog</Link></li>
+                <li><a href="/blog" className="hover:text-paper transition-colors">Blog</a></li>
                 <li><Link to="/contato" className="hover:text-paper transition-colors">Contato</Link></li>
                 <li><Link to="/funcionalidades" className="hover:text-paper transition-colors">Todas as funcionalidades</Link></li>
                 <li><a href="#comecar" onClick={scrollToSignup} className="hover:text-paper transition-colors">Comece grátis</a></li>
