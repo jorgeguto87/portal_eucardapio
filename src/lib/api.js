@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Em produção, aponta pro backend real. Em dev local, também — não faz
 // sentido rodar o backend localmente só pra testar o site institucional.
-const API_URL = import.meta.env.VITE_API_URL || 'https://servereucardapio.devaugusto.com.br/api'
+const API_URL = import.meta.env.VITE_API_URL || 'https://api.eucardapio.com.br/api'
 
 const api = axios.create({ baseURL: API_URL })
 
