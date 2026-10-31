@@ -411,6 +411,7 @@ export function page(opts) {
 <meta name="robots" content="${robots}">
 ${canonical ? `<link rel="canonical" href="${escapeHtml(canonical)}">` : ''}
 <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="alternate" type="application/rss+xml" title="Blog Eu Cardápio" href="${SITE_URL}/blog/rss.xml">
 <meta property="og:site_name" content="Eu Cardápio">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:type" content="${ogType}">

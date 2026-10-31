@@ -3,10 +3,11 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import ArticleStrip from './ArticleStrip'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function FeaturePageLayout({ seo, hero, painPoints, solution, benefits, steps, faq }) {
+export default function FeaturePageLayout({ seo, hero, painPoints, solution, benefits, steps, faq, blogKeywords }) {
   const scope = useRef(null)
   const navigate = useNavigate()
   const location = useLocation()
@@ -206,6 +207,9 @@ export default function FeaturePageLayout({ seo, hero, painPoints, solution, ben
           </div>
         </section>
       )}
+
+      {/* Artigos do blog sobre o assunto da página (some se não houver) */}
+      {blogKeywords?.length > 0 && <ArticleStrip keywords={blogKeywords} title="Artigos relacionados" className="mt-24" />}
 
       {/* Final CTA */}
       <section className="fp-section mx-auto mt-24 max-w-2xl px-6 text-center md:px-10">

@@ -67,6 +67,9 @@ const faq = [
   { q: 'Tem limite de cupons ou clientes no plano?', a: 'Não. Cupons e cashback são inclusos na assinatura de R$ 129,90/mês, sem limite de uso. Você cria quantos cupons quiser.' },
 ]
 
+// Palavras usadas para escolher os artigos relacionados do blog no fim da página.
+const blogKeywords = ["cashback", "fidelização", "fidelizar", "cupom", "programa de fidelidade"]
+
 export default function CashbackFidelizacaoPage() {
   return (
     <FeaturePageLayout
@@ -77,6 +80,7 @@ export default function CashbackFidelizacaoPage() {
       benefits={benefits}
       steps={steps}
       faq={faq}
+      blogKeywords={blogKeywords}
     />
   )
 }

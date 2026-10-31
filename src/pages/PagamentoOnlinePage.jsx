@@ -67,6 +67,9 @@ const faq = [
   { q: 'Preciso de máquina de cartão?', a: 'Não. O pagamento é online — Pix ou cartão pelo link de pagamento. Mas se você quiser usar máquina de cartão na entrega, o sistema registra isso também.' },
 ]
 
+// Palavras usadas para escolher os artigos relacionados do blog no fim da página.
+const blogKeywords = ["pagamento", "pix", "cartão", "mercado pago", "infinitepay"]
+
 export default function PagamentoOnlinePage() {
   return (
     <FeaturePageLayout
@@ -77,6 +80,7 @@ export default function PagamentoOnlinePage() {
       benefits={benefits}
       steps={steps}
       faq={faq}
+      blogKeywords={blogKeywords}
     />
   )
 }

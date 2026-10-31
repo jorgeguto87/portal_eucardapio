@@ -67,6 +67,9 @@ const faq = [
   { q: 'Como imprimo os QR Codes?', a: 'O sistema gera os QR Codes pra você. Você imprime em papel comum, coloca em suporte de mesa, ou cola diretamente na mesa.' },
 ]
 
+// Palavras usadas para escolher os artigos relacionados do blog no fim da página.
+const blogKeywords = ["qr code", "mesa", "salão", "comanda"]
+
 export default function QrCodeMesaPage() {
   return (
     <FeaturePageLayout
@@ -77,6 +80,7 @@ export default function QrCodeMesaPage() {
       benefits={benefits}
       steps={steps}
       faq={faq}
+      blogKeywords={blogKeywords}
     />
   )
 }

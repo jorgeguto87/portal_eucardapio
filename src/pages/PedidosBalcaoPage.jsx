@@ -67,6 +67,9 @@ const faq = [
   { q: 'Isso substitui uma máquina de cartão física?', a: 'Não. O pedido de balcão organiza o que foi vendido e pra quem, mas o pagamento presencial (dinheiro, maquininha) continua sendo cobrado normalmente por você — o sistema só registra a forma de pagamento usada.' },
 ]
 
+// Palavras usadas para escolher os artigos relacionados do blog no fim da página.
+const blogKeywords = ["balcão", "pdv", "ponto de venda", "caixa"]
+
 export default function PedidosBalcaoPage() {
   return (
     <FeaturePageLayout
@@ -77,6 +80,7 @@ export default function PedidosBalcaoPage() {
       benefits={benefits}
       steps={steps}
       faq={faq}
+      blogKeywords={blogKeywords}
     />
   )
 }

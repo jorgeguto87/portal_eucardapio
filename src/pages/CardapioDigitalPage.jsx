@@ -67,6 +67,9 @@ const faq = [
   { q: 'Dá pra colocar opcionais como ponto da carne ou borda recheada?', a: 'Dá. Você cria grupos de opcionais (ex: "Ponto da carne: mal passado, ao ponto, bem passado") e aplica aos produtos que precisam.' },
 ]
 
+// Palavras usadas para escolher os artigos relacionados do blog no fim da página.
+const blogKeywords = ["cardápio digital", "cardápio online", "menu digital", "cardápio"]
+
 export default function CardapioDigitalPage() {
   return (
     <FeaturePageLayout
@@ -77,6 +80,7 @@ export default function CardapioDigitalPage() {
       benefits={benefits}
       steps={steps}
       faq={faq}
+      blogKeywords={blogKeywords}
     />
   )
 }

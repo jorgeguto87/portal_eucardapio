@@ -67,6 +67,9 @@ const faq = [
   { q: 'Quanto custa para começar?', a: 'R$ 129,90 por mês, com 7 dias grátis para testar. Sem taxa de setup, sem comissão por pedido, sem cartão de crédito para o teste.' },
 ]
 
+// Palavras usadas para escolher os artigos relacionados do blog no fim da página.
+const blogKeywords = ["delivery", "entrega", "entregador", "motoboy"]
+
 export default function SistemaDeliveryPage() {
   return (
     <FeaturePageLayout
@@ -77,6 +80,7 @@ export default function SistemaDeliveryPage() {
       benefits={benefits}
       steps={steps}
       faq={faq}
+      blogKeywords={blogKeywords}
     />
   )
 }

@@ -67,6 +67,9 @@ const faq = [
   { q: 'Se a internet cair, a impressão para de funcionar?', a: 'O programa depende de conexão com o sistema pra receber os pedidos novos. Sem internet no computador onde ele está instalado, a impressão automática não acontece até a conexão voltar.' },
 ]
 
+// Palavras usadas para escolher os artigos relacionados do blog no fim da página.
+const blogKeywords = ["impressora", "impressão", "cozinha"]
+
 export default function MultiplasImpressorasPage() {
   return (
     <FeaturePageLayout
@@ -77,6 +80,7 @@ export default function MultiplasImpressorasPage() {
       benefits={benefits}
       steps={steps}
       faq={faq}
+      blogKeywords={blogKeywords}
     />
   )
 }

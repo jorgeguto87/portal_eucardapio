@@ -10,6 +10,7 @@ import Pricing from './components/Pricing'
 import Faq from './components/Faq'
 import Signup from './components/Signup'
 import Footer from './components/Footer'
+import ArticleStrip from './components/ArticleStrip'
 import FuncionalidadesPage from './pages/FuncionalidadesPage'
 import CardapioDigitalPage from './pages/CardapioDigitalPage'
 import PedidoWhatsAppPage from './pages/PedidoWhatsAppPage'
@@ -31,6 +32,7 @@ function HomePage() {
       <Features />
       <Pricing />
       <Faq />
+      <ArticleStrip eyebrow="Blog Eu Cardápio" className="py-20" />
       <Signup />
     </main>
   )
