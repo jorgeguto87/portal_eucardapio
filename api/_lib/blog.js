@@ -57,6 +57,8 @@ export async function fetchArticles() {
 export async function fetchArticle(slug) {
   const data = await getJson(`/public/articles/${encodeURIComponent(slug)}`)
   if (!data) return null
+  // Artigo juntado a outro pelo piloto de otimização: a página redireciona (301) para o que ficou.
+  if (data.redirectTo) return { redirectTo: String(data.redirectTo) }
   if (!data.article || !data.article.slug) throw new ApiUnavailable('artigo inválido')
   return data.article
 }

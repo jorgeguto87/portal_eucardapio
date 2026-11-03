@@ -43,6 +43,7 @@ export default async function handler(req, res) {
     throw err
   }
   if (!article) return errorPage(res, 404)
+  if (article.redirectTo) return VALID_SLUG.test(article.redirectTo) ? redirect(res, `/blog/${article.redirectTo}`) : errorPage(res, 404)
 
   const canonical = `${SITE_URL}/blog/${article.slug}`
   const title = article.metaTitle || `${article.title} | Eu Cardápio`
