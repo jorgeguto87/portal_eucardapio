@@ -1,230 +1,140 @@
-import { useEffect, useRef } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Check, X } from 'lucide-react'
 import ArticleStrip from './ArticleStrip'
+import PhoneChat from './PhoneChat'
+import Visual from './Visual'
+import { ScreenShot } from './ScreenShot'
+import { FAQAccordion, faqSchema, FeatureGrid } from './blocks'
+import { CtaButton, FinalCta, Icon, PageHero, Reveal, Section, SectionTitle, TrialBadge } from './ui'
+import { getSeoForPath } from '../lib/seoConfig'
 
-gsap.registerPlugin(ScrollTrigger)
 
-export default function FeaturePageLayout({ seo, hero, painPoints, solution, benefits, steps, faq, blogKeywords }) {
-  const scope = useRef(null)
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.fp-hero > *', { opacity: 0, y: 24, stagger: 0.1, duration: 0.7 })
-      gsap.utils.toArray('.fp-section').forEach((el) => {
-        gsap.from(el, {
-          opacity: 0,
-          y: 40,
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTrigger: { trigger: el, start: 'top 80%' },
-        })
-      })
-    }, scope)
-    return () => ctx.revert()
-  }, [])
-
-  const scrollToSignup = (e) => {
-    e.preventDefault()
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => document.getElementById('comecar')?.scrollIntoView({ behavior: 'smooth' }), 100)
-      return
-    }
-    document.getElementById('comecar')?.scrollIntoView({ behavior: 'smooth' })
+export default function FeaturePageLayout({ slug, c }) {
+  const seo = getSeoForPath(`/${slug}`)
+  const breadcrumbs = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://portal.eucardapio.com.br/' },
+      { '@type': 'ListItem', position: 2, name: 'Funcionalidades', item: 'https://portal.eucardapio.com.br/funcionalidades' },
+      { '@type': 'ListItem', position: 3, name: c.name, item: seo.canonical },
+    ],
   }
 
-  const faqSchema = faq
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: faq.map((item) => ({
-          '@type': 'Question',
-          name: item.q,
-          acceptedAnswer: { '@type': 'Answer', text: item.a },
-        })),
-      }
-    : null
-
   return (
-    <div ref={scope} className="pt-28 pb-24">
+    <main>
       <Helmet>
-        <title>{seo.title}</title>
-        <meta name="description" content={seo.description} />
-        <link rel="canonical" href={seo.canonical} />
-        <meta property="og:title" content={seo.title} />
-        <meta property="og:description" content={seo.description} />
-        <meta property="og:url" content={seo.canonical} />
-        {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
+        <script type="application/ld+json">{JSON.stringify(faqSchema(c.faq))}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbs)}</script>
       </Helmet>
 
-      {/* Hero */}
-      <section className="fp-hero mx-auto max-w-4xl px-6 text-center md:px-10">
-        <span className="font-[family-name:var(--font-mono)] text-xs font-semibold uppercase tracking-[0.2em] text-ember-dark">
-          {hero.eyebrow}
-        </span>
-        <h1 className="mx-auto mt-4 max-w-2xl font-[family-name:var(--font-display)] text-[clamp(1.7rem,6.5vw,3rem)] font-semibold leading-tight text-ink">
-          {hero.title}
-        </h1>
-        <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft/80 sm:text-lg">
-          {hero.subtitle}
-        </p>
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="#comecar"
-            onClick={scrollToSignup}
-            className="inline-flex items-center gap-2 bg-ink text-paper font-semibold text-base rounded-full px-7 py-4 hover:bg-ink-soft transition-colors"
-          >
-            Comece grátis por 7 dias
-          </a>
-          <Link
-            to="/funcionalidades"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-ember-dark transition-colors"
-          >
-            Ver todas as funcionalidades →
-          </Link>
-        </div>
-        <p className="mt-4 text-sm text-ink-soft/70">Sem cartão de crédito pra testar</p>
-      </section>
+      <PageHero eyebrow={c.eyebrow} title={c.h1} subtitle={c.subtitle}>
+        <div className="mt-8 flex justify-center"><CtaButton /></div>
+        <div className="mt-6 flex justify-center"><TrialBadge dark className="justify-center" /></div>
+      </PageHero>
 
-      {/* Pain points */}
-      {painPoints && (
-        <section className="fp-section mx-auto mt-24 max-w-4xl px-6 md:px-10">
-          <div className="rounded-2xl bg-paper-dim p-8 md:p-12">
-            <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.3rem,5vw,2rem)] font-semibold text-ink mb-8 max-w-xl">
-              {painPoints.title}
-            </h2>
-            <div className="grid gap-6 sm:grid-cols-2">
-              {painPoints.items.map((item, i) => (
-                <div key={i} className="flex gap-4">
-                  <span className="shrink-0 w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-500 font-bold text-lg">
-                    ✕
-                  </span>
-                  <div>
-                    <h3 className="font-semibold text-ink mb-1">{item.title}</h3>
-                    <p className="text-sm text-ink-soft leading-relaxed">{item.body}</p>
-                  </div>
-                </div>
+      {/* Visual principal, subindo sobre o fim do topo escuro */}
+      <div className="relative">
+        <div className="absolute inset-x-0 top-0 h-40 bg-hero" aria-hidden="true" />
+        <Reveal className="relative mx-auto max-w-5xl px-4 pb-6 sm:px-8">
+          <Visual v={c.hero} />
+        </Reveal>
+      </div>
+
+      <Section className="pt-24 sm:pt-32">
+        <SectionTitle eyebrow="Antes e depois" title={`Do jeito antigo para o jeito Eu Cardápio`} />
+        <div className="grid gap-6 md:grid-cols-2">
+          <Reveal className="rounded-[24px] border border-ink/10 bg-paper-dim/60 p-7 sm:p-8">
+            <h3 className="mb-5 font-[family-name:var(--font-sans)] text-lg font-bold tracking-tight">Sem o Eu Cardápio</h3>
+            <ul className="space-y-3">
+              {c.problems.map((p) => (
+                <li key={p} className="flex gap-3 text-ink-soft/80"><X className="mt-0.5 h-5 w-5 shrink-0 text-red-500/70" aria-hidden="true" />{p}</li>
               ))}
-            </div>
+            </ul>
+          </Reveal>
+          <Reveal delay={120} className="rounded-[24px] bg-hero p-7 text-paper shadow-glow sm:p-8">
+            <h3 className="mb-5 font-[family-name:var(--font-sans)] text-lg font-bold tracking-tight">Com o Eu Cardápio</h3>
+            <ul className="space-y-3">
+              {c.solutions.map((p) => (
+                <li key={p} className="flex gap-3 text-paper/85"><Check className="mt-0.5 h-5 w-5 shrink-0 text-ember-light" aria-hidden="true" />{p}</li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section dark className="overflow-hidden">
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
+          <div>
+            <SectionTitle dark center={false} eyebrow="Como funciona" title="Passo a passo" />
+            <ol className="space-y-4">
+              {c.steps.map((s, i) => (
+                <Reveal as="li" key={s.title} delay={i * 90} className="glass flex gap-4 rounded-[22px] p-5">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-ember font-bold text-white">{i + 1}</span>
+                  <div>
+                    <h3 className="font-[family-name:var(--font-sans)] font-bold tracking-tight">{s.title}</h3>
+                    <p className="mt-1 text-sm text-paper/70">{s.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </ol>
           </div>
-        </section>
+          <Reveal className="flex justify-center"><Visual v={c.stepsVisual} className="w-full" /></Reveal>
+        </div>
+      </Section>
+
+      {c.extraChats && (
+        <Section>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <SectionTitle center={false} eyebrow="Mais situações" title={c.extraChats.title} desc={c.extraChats.desc} />
+            <Reveal className="flex flex-wrap justify-center gap-6">
+              {c.extraChats.items.map((conv, i) => <PhoneChat key={i} conversa={conv} />)}
+            </Reveal>
+          </div>
+        </Section>
       )}
 
-      {/* Solution */}
-      {solution && (
-        <section className="fp-section mx-auto mt-24 max-w-5xl px-6 md:px-10">
-          <div className="grid items-center gap-12 md:grid-cols-2">
-            <div>
-              <span className="font-[family-name:var(--font-mono)] text-xs font-semibold uppercase tracking-[0.15em] text-ember-dark">
-                {solution.tag}
-              </span>
-              <h2 className="mt-3 font-[family-name:var(--font-display)] text-[clamp(1.25rem,5vw,1.875rem)] font-semibold leading-tight text-ink">
-                {solution.title}
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-ink-soft/80">{solution.body}</p>
-            </div>
-            <div className="rounded-2xl border border-ink/10 bg-white p-8 shadow-xl">
-              <ul className="space-y-4">
-                {solution.items.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="shrink-0 mt-0.5 w-6 h-6 rounded-full bg-ember/10 flex items-center justify-center text-ember-dark font-bold text-sm">
-                      ✓
-                    </span>
-                    <span className="text-sm text-ink-soft leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Benefits */}
-      {benefits && (
-        <section className="fp-section mx-auto mt-24 max-w-5xl px-6 md:px-10">
-          <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.3rem,5vw,2rem)] font-semibold text-ink mb-12 text-center max-w-xl mx-auto">
-            {benefits.title}
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.items.map((item, i) => (
-              <div key={i} className="rounded-2xl bg-paper-dim p-8 hover:bg-white transition-colors">
-                <span className="text-3xl mb-4 block">{item.icon}</span>
-                <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-ink mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-ink-soft leading-relaxed">{item.body}</p>
-              </div>
+      {c.gallery && (
+        <Section className="bg-white">
+          <SectionTitle eyebrow="No painel" title="Tudo à vista" />
+          <div className="grid gap-8 md:grid-cols-2">
+            {c.gallery.map((g, i) => (
+              <Reveal key={g.title} delay={i * 100}>
+                <ScreenShot name={g.screen} show={g.show} alt={g.title} />
+                <h3 className="mt-5 font-[family-name:var(--font-sans)] text-lg font-bold tracking-tight">{g.title}</h3>
+                <p className="mt-1 text-ink-soft/75">{g.desc}</p>
+              </Reveal>
             ))}
           </div>
-        </section>
+        </Section>
       )}
 
-      {/* Steps */}
-      {steps && (
-        <section className="fp-section mx-auto mt-24 max-w-4xl px-6 md:px-10">
-          <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.3rem,5vw,2rem)] font-semibold text-ink mb-12 text-center max-w-xl mx-auto">
-            {steps.title}
-          </h2>
-          <div className="space-y-8">
-            {steps.items.map((step, i) => (
-              <div key={i} className="flex gap-6">
-                <span className="shrink-0 w-12 h-12 rounded-full bg-ink text-paper font-[family-name:var(--font-mono)] font-bold flex items-center justify-center">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div className="pt-2">
-                  <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-ink mb-1">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-ink-soft leading-relaxed max-w-lg">{step.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      <Section className={c.extraChats || c.gallery ? 'bg-paper-dim/50' : ''}>
+        <SectionTitle eyebrow="Benefícios" title={`${c.name}: o que você ganha`} />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {c.benefits.map((b, i) => (
+            <Reveal key={b.title} delay={(i % 3) * 70} className="rounded-[22px] border border-ink/10 bg-white p-6 shadow-soft">
+              <span className="mb-4 grid h-11 w-11 place-items-center rounded-2xl bg-ember/10 text-ember-dark"><Icon name={b.icon} className="h-5 w-5" /></span>
+              <h3 className="font-[family-name:var(--font-sans)] font-bold tracking-tight">{b.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ink-soft/75">{b.desc}</p>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
 
-      {/* FAQ */}
-      {faq && (
-        <section className="fp-section mx-auto mt-24 max-w-3xl px-6 md:px-10">
-          <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.3rem,5vw,2rem)] font-semibold text-ink mb-8 text-center">
-            Perguntas frequentes
-          </h2>
-          <div className="space-y-3">
-            {faq.map((item, i) => (
-              <details key={i} className="group rounded-xl bg-white border border-ink/10 px-6 py-4">
-                <summary className="cursor-pointer font-semibold text-ink flex items-center justify-between list-none">
-                  {item.q}
-                  <span className="text-ember-dark text-xl group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <p className="mt-3 text-sm text-ink-soft leading-relaxed">{item.a}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-      )}
+      <Section className="bg-white">
+        <SectionTitle eyebrow="Dúvidas" title="Perguntas frequentes" />
+        <FAQAccordion items={c.faq} />
+      </Section>
 
-      {/* Artigos do blog sobre o assunto da página (some se não houver) */}
-      {blogKeywords?.length > 0 && <ArticleStrip keywords={blogKeywords} title="Artigos relacionados" className="mt-24" />}
+      <ArticleStrip keywords={c.blogKeywords} eyebrow="Do blog" title="Artigos relacionados" className="py-20" />
 
-      {/* Final CTA */}
-      <section className="fp-section mx-auto mt-24 max-w-2xl px-6 text-center md:px-10">
-        <h3 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-ink">
-          Seu restaurante merece isso.
-        </h3>
-        <a
-          href="#comecar"
-          onClick={scrollToSignup}
-          className="mt-6 inline-block rounded-full bg-ember px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-ember-dark"
-        >
-          Comece grátis por 7 dias
-        </a>
-        <p className="mt-3 text-xs text-ink-soft/60">Sem cartão de crédito. Cancele quando quiser.</p>
-      </section>
-    </div>
+      <Section className="bg-paper-dim/50">
+        <SectionTitle eyebrow="Veja também" title="Funcionalidades relacionadas" />
+        <FeatureGrid only={c.related} />
+      </Section>
+
+      <FinalCta />
+    </main>
   )
 }

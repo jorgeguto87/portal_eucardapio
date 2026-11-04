@@ -13,6 +13,8 @@ const STATIC_URLS = [
   { path: '/qr-code-mesa', changefreq: 'monthly', priority: '0.8' },
   { path: '/sistema-delivery', changefreq: 'monthly', priority: '0.9' },
   { path: '/cashback-fidelizacao', changefreq: 'monthly', priority: '0.8' },
+  { path: '/pedidos-balcao', changefreq: 'monthly', priority: '0.8' },
+  { path: '/multiplas-impressoras', changefreq: 'monthly', priority: '0.8' },
   { path: '/precos', changefreq: 'monthly', priority: '0.9' },
   { path: '/sobre', changefreq: 'monthly', priority: '0.5' },
   { path: '/contato', changefreq: 'monthly', priority: '0.5' },

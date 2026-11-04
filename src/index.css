@@ -1,33 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* Fundo quente tipo papel de comanda, não branco frio de SaaS */
+  /* Fundo quente tipo papel de comanda */
   --color-paper:      #FFF8F0;
   --color-paper-dim:  #F5EDE0;
 
-  /* Marca — mesmas cores dos painéis, mantendo consistência */
+  /* Marca — mesmas cores dos painéis */
   --color-ink:        #1A1A2E;
   --color-ink-soft:   #2D2D4E;
   --color-ember:      #FF6B2C;
   --color-ember-dark: #E05520;
   --color-ember-light:#FF8C5A;
-
-  /* Verde só pra momentos de "dinheiro direto na sua conta" — usado com moderação */
   --color-cash:       #0B6B4F;
 
-  --font-display: 'Fraunces', serif;
-  --font-sans:    'Inter', sans-serif;
-  --font-mono:    'JetBrains Mono', monospace;
+  /* Simulação do WhatsApp */
+  --color-wa:         #075E54;
+  --color-wa-bubble:  #DCF8C6;
+  --color-wa-bg:      #EFE7DD;
+  --color-wa-tick:    #34B7F1;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
 }
 
 html {
   scroll-behavior: smooth;
-  /* Trava de segurança: nenhum elemento (mesmo com bug de largura) deve
-     conseguir criar rolagem horizontal na página inteira. Sem isso, um
-     único componente com tamanho mal calculado numa tela estreita "puxa"
-     a página inteira mais larga que a tela, cortando texto de outras
-     seções que estavam corretas. */
+  /* Nenhum elemento pode criar rolagem horizontal na página inteira. */
   overflow-x: hidden;
 }
 
@@ -40,6 +40,71 @@ body {
   width: 100%;
 }
 
+@layer base {
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility bg-hero {
+  background:
+    radial-gradient(900px 520px at 85% 0%, rgb(255 107 44 / 0.38), transparent 60%),
+    radial-gradient(700px 480px at 0% 100%, rgb(255 140 90 / 0.16), transparent 60%),
+    linear-gradient(165deg, #12121F 0%, #1A1A2E 55%, #2A1C2A 100%);
+}
+@utility shadow-soft {
+  box-shadow: 0 20px 50px -22px rgb(26 26 46 / 0.22);
+}
+@utility shadow-glow {
+  box-shadow: 0 30px 80px -24px rgb(255 107 44 / 0.45);
+}
+@utility shadow-phone {
+  box-shadow: 0 40px 90px -30px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(255 255 255 / 0.06);
+}
+@utility glass {
+  background: rgb(255 255 255 / 0.06);
+  border: 1px solid rgb(255 255 255 / 0.12);
+  backdrop-filter: blur(16px);
+}
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Entrada suave ao rolar (Reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes typing-dot {
+  0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-2px); }
+}
+.animate-float { animation: float-y 6s ease-in-out infinite; }
+.animate-msg { animation: msg-in 0.35s ease-out both; }
+.typing-dot { animation: typing-dot 1s infinite ease-in-out; }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
 /* Respeita quem pediu menos movimento */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -48,6 +113,7 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .reveal { opacity: 1; transform: none; }
 }
 
 /* Foco visível de teclado — nunca remover */

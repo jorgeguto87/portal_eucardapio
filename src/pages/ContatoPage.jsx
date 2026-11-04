@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Helmet } from 'react-helmet-async'
+import { CheckCircle2, Mail, MessageCircle } from 'lucide-react'
 import { sendContactMessage } from '../lib/api'
-
-const SITE_URL = 'https://portal.eucardapio.com.br'
+import { SITE } from '../content/site'
+import { PageHero } from '../components/ui'
 
 export default function ContatoPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -32,55 +32,33 @@ export default function ContatoPage() {
   }
 
   return (
-    <div className="pt-28 pb-24">
-      <Helmet>
-        <title>Contato — Fale com o Eu Cardápio</title>
-        <meta name="description" content="Tem dúvida sobre o Eu Cardápio? Fale com a gente pelo WhatsApp ou e-mail. Respondemos rápido, sem robô." />
-        <link rel="canonical" href={`${SITE_URL}/contato`} />
-      </Helmet>
+    <main>
+      <PageHero eyebrow="Contato" title="Fale com a gente" subtitle="Tem dúvida ou quer saber se o Eu Cardápio serve para o seu restaurante? Mande uma mensagem." />
 
-      <section className="mx-auto max-w-2xl px-6 text-center md:px-10">
-        <span className="font-[family-name:var(--font-mono)] text-xs font-semibold uppercase tracking-[0.2em] text-ember-dark">
-          Contato
-        </span>
-        <h1 className="mx-auto mt-4 max-w-xl font-[family-name:var(--font-display)] text-[clamp(1.7rem,6.5vw,3rem)] font-semibold leading-tight text-ink">
-          Fale com a gente
-        </h1>
-        <p className="mx-auto mt-5 max-w-lg text-base text-ink-soft/80 sm:text-lg">
-          Tem dúvida, sugestão ou quer tirar uma questão antes de começar? A gente responde rápido, sem robô.
-        </p>
-      </section>
-
-      <section className="mx-auto mt-16 max-w-xl px-6 md:px-10">
-        <div className="grid gap-6 sm:grid-cols-2 mb-12">
-          <a
-            href="https://wa.me/5521999363578"
-            className="rounded-2xl bg-paper-dim p-6 hover:bg-white transition-colors border border-ink/10"
-          >
-            <span className="text-2xl mb-3 block">💬</span>
-            <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-ink mb-1">WhatsApp</h3>
-            <p className="text-sm text-ink-soft">Resposta em minutos, no horário comercial.</p>
+      <section className="relative mx-auto -mt-10 max-w-xl px-4 pb-24 sm:px-8">
+        <div className="mb-10 grid gap-4 sm:grid-cols-2">
+          <a href={SITE.whatsapp} className="rounded-[22px] border border-ink/10 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:border-ember/40">
+            <MessageCircle className="mb-3 h-6 w-6 text-ember-dark" aria-hidden="true" />
+            <h2 className="font-[family-name:var(--font-sans)] text-lg font-bold tracking-tight">WhatsApp</h2>
+            <p className="text-sm text-ink-soft/75">Resposta no horário comercial.</p>
           </a>
-          <a
-            href="mailto:eucardapio@gmail.com"
-            className="rounded-2xl bg-paper-dim p-6 hover:bg-white transition-colors border border-ink/10"
-          >
-            <span className="text-2xl mb-3 block">✉️</span>
-            <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-ink mb-1">E-mail</h3>
-            <p className="text-sm text-ink-soft">eucardapio@gmail.com</p>
+          <a href={`mailto:${SITE.email}`} className="rounded-[22px] border border-ink/10 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:border-ember/40">
+            <Mail className="mb-3 h-6 w-6 text-ember-dark" aria-hidden="true" />
+            <h2 className="font-[family-name:var(--font-sans)] text-lg font-bold tracking-tight">E-mail</h2>
+            <p className="break-all text-sm text-ink-soft/75">{SITE.email}</p>
           </a>
         </div>
 
         {sent ? (
           <div className="rounded-2xl bg-cash/10 border border-cash/20 p-8 text-center">
-            <span className="text-3xl mb-3 block">✅</span>
-            <h3 className="font-[family-name:var(--font-display)] text-xl font-semibold text-ink mb-2">Mensagem enviada!</h3>
+            <CheckCircle2 className="mx-auto mb-3 h-8 w-8 text-cash" aria-hidden="true" />
+            <h2 className="text-xl font-semibold text-ink mb-2">Mensagem enviada!</h2>
             <p className="text-sm text-ink-soft">Vamos responder o mais rápido possível. Obrigado pelo contato.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="rounded-2xl bg-white p-7 md:p-9 shadow-[0_20px_60px_-20px_rgba(26,26,46,0.15)] border border-ink/10 space-y-5">
+          <form onSubmit={handleSubmit} className="rounded-[24px] bg-white p-6 sm:p-9 shadow-soft border border-ink/10 space-y-5">
             {erro && (
-              <div className="rounded-xl bg-danger/10 border border-danger/20 px-4 py-3 text-sm text-danger">
+              <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
                 {erro}
               </div>
             )}
@@ -111,13 +89,13 @@ export default function ContatoPage() {
             <button
               type="submit"
               disabled={enviando}
-              className="w-full bg-ember hover:bg-ember-dark transition-colors text-white font-semibold rounded-full px-6 py-4 disabled:opacity-60"
+              className="w-full bg-ember shadow-glow hover:bg-ember-dark transition-colors text-white font-semibold rounded-full px-6 py-4 disabled:opacity-60"
             >
               {enviando ? 'Enviando...' : 'Enviar mensagem'}
             </button>
           </form>
         )}
       </section>
-    </div>
+    </main>
   )
 }

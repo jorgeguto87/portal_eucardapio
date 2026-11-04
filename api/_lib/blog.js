@@ -12,7 +12,7 @@ import sanitizeHtml from 'sanitize-html'
 export const SITE_URL = 'https://portal.eucardapio.com.br'
 export const SITE_HOST = 'portal.eucardapio.com.br'
 export const PAINEL_URL = 'https://painel.eucardapio.com.br'
-// Mesmo destino do botão "Eu quero" do portal: seção de cadastro da home.
+// Mesmo destino do botão "Testar grátis" do portal: seção de cadastro da home.
 export const SIGNUP_URL = '/#comecar'
 export const OG_IMAGE = `${SITE_URL}/og-image.png`
 export const LOGO_URL = `${SITE_URL}/favicon.png`
@@ -237,20 +237,21 @@ img{max-width:100%;height:auto}
 @media(min-width:640px){.wrap{padding:0 24px}}
 @media(min-width:768px){.wrap{padding:0 40px}}
 /* Header */
-.hd{position:sticky;top:0;z-index:50;background:rgba(255,248,240,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(26,26,46,.08)}
-.hd .wrap{height:64px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-@media(min-width:768px){.hd .wrap{height:80px}}
+.hd{position:sticky;top:0;z-index:50;background:rgba(255,248,240,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(26,26,46,.08)}
+.hd .wrap{max-width:80rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+@media(min-width:768px){.hd .wrap{height:72px}}
 .brand{display:flex;align-items:center;gap:8px;text-decoration:none;min-width:0}
 .brand img{width:32px;height:32px;border-radius:8px;flex-shrink:0}
 @media(min-width:640px){.brand img{width:36px;height:36px}}
 .brand span{font-family:var(--display);font-weight:600;font-size:clamp(1.05rem,4vw,1.5rem);letter-spacing:-.01em;white-space:nowrap}
 .nav{display:none;align-items:center;gap:4px}
 @media(min-width:768px){.nav{display:flex}}
-.nav a{font-size:.875rem;font-weight:500;color:var(--ink-soft);text-decoration:none;padding:8px 10px;white-space:nowrap;border-radius:6px}
+.nav a{font-size:.875rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 12px;white-space:nowrap;border-radius:999px}
+.nav a:not(.btn):hover{background:rgba(26,26,46,.05)}
 .nav a:hover,.nav a[aria-current]{color:var(--ink)}
 .nav a[aria-current]{text-decoration:underline;text-decoration-color:var(--ember);text-decoration-thickness:2px;text-underline-offset:6px}
-.btn{display:inline-block;font-weight:600;color:var(--paper)!important;background:var(--ink);border-radius:999px;text-decoration:none!important;white-space:nowrap;transition:background .2s}
-.btn:hover{background:var(--ink-soft)}
+.btn{display:inline-block;font-weight:600;color:#fff!important;background:var(--ember);border-radius:999px;text-decoration:none!important;white-space:nowrap;transition:background .2s;box-shadow:0 14px 30px -14px rgba(255,107,44,.6)}
+.btn:hover{background:var(--ember-dark)}
 .nav .btn{padding:10px 20px;margin-left:6px}
 .mob{display:flex;align-items:center;gap:8px}
 @media(min-width:768px){.mob{display:none}}
@@ -276,7 +277,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;letter-spacing:-.015em;li
 .grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:40px}
 @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
-.card{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(26,26,46,.08);border-radius:16px;padding:24px;text-decoration:none;transition:box-shadow .2s,transform .2s}
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(26,26,46,.1);border-radius:24px;box-shadow:0 20px 50px -22px rgba(26,26,46,.22);padding:24px;text-decoration:none;transition:box-shadow .2s,transform .2s}
 .card:hover{box-shadow:0 20px 50px -24px rgba(26,26,46,.25);transform:translateY(-2px)}
 .card .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ember-dark);margin:0 0 10px}
 .card h2,.card h3{font-size:1.25rem;margin:0 0 10px}
@@ -316,7 +317,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:600;letter-spacing:-.015em;li
 .prose table{border-collapse:collapse;width:100%;font-size:.95rem;background:#fff;border-radius:12px;overflow:hidden;margin:0}
 .prose th,.prose td{padding:10px 14px;border-bottom:1px solid rgba(26,26,46,.08);text-align:left;vertical-align:top}
 .prose th{background:var(--paper-dim);font-weight:600}
-.cta{margin:56px 0 0;background:var(--ink);color:var(--paper);border-radius:20px;padding:32px 24px;text-align:center}
+.cta{margin:56px 0 0;background:radial-gradient(600px 300px at 85% 0%,rgba(255,107,44,.38),transparent 60%),linear-gradient(165deg,#12121F 0%,#1A1A2E 55%,#2A1C2A 100%);border-radius:28px;color:var(--paper);border-radius:20px;padding:32px 24px;text-align:center}
 @media(min-width:640px){.cta{padding:40px}}
 .cta h2{color:var(--paper);font-size:clamp(1.5rem,5vw,2rem);margin:0 0 10px}
 .cta p{color:rgba(255,248,240,.78);margin:0 0 22px}
@@ -355,10 +356,10 @@ function header(active) {
 <a href="/blog"${cur('blog')}>Blog</a>
 <a href="/contato">Contato</a>
 <a href="${PAINEL_URL}">Entrar</a>
-<a class="btn" href="${SIGNUP_URL}">Eu quero</a>
+<a class="btn" href="${SIGNUP_URL}">Testar grátis</a>
 </nav>
 <div class="mob">
-<a class="btn" href="${SIGNUP_URL}">Eu quero</a>
+<a class="btn" href="${SIGNUP_URL}">Testar grátis</a>
 <details><summary aria-label="Menu"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg></summary>
 <div class="panel">
 <a href="/funcionalidades">Funcionalidades</a>
@@ -377,7 +378,7 @@ function footer() {
   return `<footer class="ft"><div class="wrap">
 <div class="top">
 <div><div class="logo"><img src="/favicon.png" alt="" width="32" height="32"><span>Eu Cardápio</span></div>
-<p>Cardápio digital, WhatsApp automático e pagamento direto na conta — tudo num painel só, sem depender de terceiro.</p></div>
+<p>Cardápio digital, WhatsApp automático, entregas e pagamento direto na sua conta, num painel só. Sem comissão por pedido.</p></div>
 <ul>
 <li><a href="/funcionalidades">Funcionalidades</a></li>
 <li><a href="/precos">Preços</a></li>

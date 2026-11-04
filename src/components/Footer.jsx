@@ -1,76 +1,49 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { PAINEL_URL } from '../lib/api'
+import { Link } from 'react-router-dom'
+import { FEATURES, SITE } from '../content/site'
+import { Logo } from './ui'
 
 export default function Footer() {
   const year = new Date().getFullYear()
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  const scrollToSignup = (e) => {
-    e.preventDefault()
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => document.getElementById('comecar')?.scrollIntoView({ behavior: 'smooth' }), 100)
-      return
-    }
-    document.getElementById('comecar')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <footer className="bg-ink text-paper/70 px-6 md:px-10 py-14">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between gap-10 pb-10 border-b border-dashed border-paper/15">
+    <footer className="bg-ink px-4 pb-10 pt-16 text-paper/70 sm:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-10 border-b border-paper/10 pb-12 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2.5 mb-3">
-              <img src="/favicon.png" alt="" className="w-8 h-8 rounded-lg" />
-              <p className="font-[family-name:var(--font-display)] text-2xl font-semibold text-paper">
-                Eu Cardápio
-              </p>
-            </div>
-            <p className="text-sm max-w-xs leading-relaxed">
-              Cardápio digital, WhatsApp automático e pagamento direto na conta —
-              tudo num painel só, sem depender de terceiro.
+            <Logo light />
+            <p className="mt-4 max-w-xs text-sm leading-relaxed">
+              Cardápio digital, WhatsApp automático, entregas e pagamento direto na sua conta, num painel só. Sem comissão por pedido.
             </p>
+            <Link to={SITE.signupHref} className="mt-6 inline-flex rounded-full bg-ember px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-ember-dark">
+              Começar {SITE.trialDays} dias grátis
+            </Link>
           </div>
-
-          <div className="flex flex-wrap gap-10 md:gap-16">
-            <div>
-              <p className="font-[family-name:var(--font-mono)] text-[11px] tracking-widest uppercase text-paper/40 mb-3">Funcionalidades</p>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/cardapio-digital" className="hover:text-paper transition-colors">Cardápio Digital</Link></li>
-                <li><Link to="/pedido-whatsapp" className="hover:text-paper transition-colors">Pedido pelo WhatsApp</Link></li>
-                <li><Link to="/pagamento-online" className="hover:text-paper transition-colors">Pagamento Online</Link></li>
-                <li><Link to="/qr-code-mesa" className="hover:text-paper transition-colors">QR Code na Mesa</Link></li>
-                <li><Link to="/sistema-delivery" className="hover:text-paper transition-colors">Sistema de Delivery</Link></li>
-                <li><Link to="/cashback-fidelizacao" className="hover:text-paper transition-colors">Cashback e Fidelização</Link></li>
-                <li><Link to="/pedidos-balcao" className="hover:text-paper transition-colors">Pedidos no Balcão</Link></li>
-                <li><Link to="/multiplas-impressoras" className="hover:text-paper transition-colors">Impressão em Múltiplas Impressoras</Link></li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-[family-name:var(--font-mono)] text-[11px] tracking-widest uppercase text-paper/40 mb-3">Empresa</p>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/precos" className="hover:text-paper transition-colors">Preços</Link></li>
-                <li><Link to="/sobre" className="hover:text-paper transition-colors">Sobre</Link></li>
-                <li><a href="/blog" className="hover:text-paper transition-colors">Blog</a></li>
-                <li><Link to="/contato" className="hover:text-paper transition-colors">Contato</Link></li>
-                <li><Link to="/funcionalidades" className="hover:text-paper transition-colors">Todas as funcionalidades</Link></li>
-                <li><a href="#comecar" onClick={scrollToSignup} className="hover:text-paper transition-colors">Comece grátis</a></li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-[family-name:var(--font-mono)] text-[11px] tracking-widest uppercase text-paper/40 mb-3">Conta</p>
-              <ul className="space-y-2 text-sm">
-                <li><a href={PAINEL_URL} className="hover:text-paper transition-colors">Entrar no painel</a></li>
-              </ul>
-            </div>
+          <div>
+            <p className="eyebrow mb-4 text-paper/40">Funcionalidades</p>
+            <ul className="space-y-2.5 text-sm">
+              {FEATURES.map((f) => <li key={f.slug}><Link to={`/${f.slug}`} className="transition hover:text-paper">{f.title}</Link></li>)}
+            </ul>
+          </div>
+          <div>
+            <p className="eyebrow mb-4 text-paper/40">Empresa</p>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link to="/funcionalidades" className="transition hover:text-paper">Todas as funcionalidades</Link></li>
+              <li><Link to="/precos" className="transition hover:text-paper">Preços</Link></li>
+              <li><Link to="/sobre" className="transition hover:text-paper">Sobre</Link></li>
+              <li><a href="/blog" className="transition hover:text-paper">Blog</a></li>
+              <li><Link to="/contato" className="transition hover:text-paper">Contato</Link></li>
+            </ul>
+          </div>
+          <div>
+            <p className="eyebrow mb-4 text-paper/40">Conta</p>
+            <ul className="space-y-2.5 text-sm">
+              <li><a href={SITE.painelUrl} className="transition hover:text-paper">Entrar no painel</a></li>
+              <li><Link to={SITE.signupHref} className="transition hover:text-paper">Criar conta grátis</Link></li>
+              <li><a href={SITE.whatsapp} className="transition hover:text-paper">WhatsApp</a></li>
+              <li><a href={`mailto:${SITE.email}`} className="transition hover:text-paper">{SITE.email}</a></li>
+            </ul>
           </div>
         </div>
-
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-[family-name:var(--font-mono)] text-xs text-paper/40">
-          <span>© {year} Eu Cardápio — todos os direitos reservados</span>
-          <span>obrigado pela preferência ·</span>
-        </div>
+        <p className="pt-6 font-[family-name:var(--font-mono)] text-xs text-paper/40">© {year} Eu Cardápio — todos os direitos reservados</p>
       </div>
     </footer>
   )

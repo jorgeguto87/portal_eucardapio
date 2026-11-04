@@ -25,10 +25,10 @@ const softwareSchema = {
   name: 'Eu Cardápio',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
-  description: 'Cardápio digital para restaurantes, com pedido pelo WhatsApp, pagamento direto na conta do restaurante e cashback para o cliente.',
+  description: 'Cardápio digital para restaurantes, com atendimento automático no WhatsApp, entregas organizadas, pagamento direto na conta do restaurante e cashback para o cliente.',
   offers: {
     '@type': 'Offer',
-    price: '79.90',
+    price: '129.90',
     priceCurrency: 'BRL',
     priceValidUntil: '2027-12-31',
   },
