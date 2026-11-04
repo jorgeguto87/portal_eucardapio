@@ -100,7 +100,11 @@ export default function FeaturePageLayout({ slug, c }) {
           <div className="grid gap-8 md:grid-cols-2">
             {c.gallery.map((g, i) => (
               <Reveal key={g.title} delay={i * 100}>
-                <ScreenShot name={g.screen} show={g.show} alt={g.title} />
+                <div className="flex justify-center">
+                  {g.poster
+                    ? <img src={`/telas/${g.screen}.webp`} alt={g.title} width="800" height="1131" loading="lazy" decoding="async" className="h-auto w-[300px] rounded-md bg-white p-2 shadow-soft ring-1 ring-ink/10" />
+                    : <ScreenShot name={g.screen} show={g.show} alt={g.title} className="w-full" />}
+                </div>
                 <h3 className="mt-5 font-[family-name:var(--font-sans)] text-lg font-bold tracking-tight">{g.title}</h3>
                 <p className="mt-1 text-ink-soft/75">{g.desc}</p>
               </Reveal>

@@ -204,7 +204,7 @@ export const FEATURE_PAGES = {
     eyebrow: 'QR Code na mesa',
     h1: 'O cliente da mesa pede pelo celular',
     subtitle: 'Imprima o QR Code pelo painel e coloque nas mesas. O cliente abre o mesmo cardápio do delivery, informa a mesa e pede. O pedido cai no painel e na impressora.',
-    hero: { phones: [{ screen: 'cardapio-celular', alt: 'Cardápio digital aberto pelo QR Code da mesa' }, { screen: 'mesa-celular', alt: 'Finalização do pedido de mesa com o número da mesa e as formas de pagamento' }] },
+    hero: { poster: 'cartaz-mesa', posterAlt: 'Cartaz para a mesa gerado pelo painel, com a logo do restaurante e o QR Code do cardápio', phone: 'mesa-cardapio-celular', alt: 'Cardápio digital aberto pelo QR Code, no modo pedido de mesa' },
     problems: [
       'Cliente esperando o garçom só para anotar o pedido',
       'Comanda de papel que some ou ninguém entende',
@@ -225,7 +225,11 @@ export const FEATURE_PAGES = {
       { title: 'Escolhe e informa a mesa', desc: 'Monta o pedido e escolhe como vai pagar.' },
       { title: 'A cozinha recebe', desc: 'O pedido chega com o número da mesa no painel e na impressora.' },
     ],
-    stepsVisual: { screen: 'painel-pedidos', show: 'auto', alt: 'Pedidos de mesa no quadro de pedidos do painel' },
+    stepsVisual: { screen: 'mesa-celular', show: 'mobile', alt: 'Finalização do pedido de mesa com o número da mesa e as formas de pagamento' },
+    gallery: [
+      { screen: 'cartaz-mesa', poster: true, title: 'Cartaz pronto para imprimir', desc: 'O painel gera o PDF com a logo do restaurante e o QR Code. É só imprimir e colocar nas mesas.' },
+      { screen: 'painel-pedidos', show: 'desktop', title: 'Pedido com o número da mesa', desc: 'O pedido aparece no quadro como "Mesa 7" e pode sair impresso na cozinha.' },
+    ],
     benefits: [
       { icon: 'Timer', title: 'Pedido na hora', desc: 'O cliente não depende do garçom para pedir.' },
       { icon: 'Image', title: 'Foto vende mais', desc: 'Cada prato com foto no celular do cliente.' },
@@ -343,7 +347,7 @@ export const FEATURE_PAGES = {
     eyebrow: 'Cashback e cupons',
     h1: 'Cashback e cupons que trazem o cliente de volta',
     subtitle: 'O cliente ganha crédito em cada compra e usa no próximo pedido. Crie cupons de desconto ou item grátis com as suas regras.',
-    hero: { phones: [{ screen: 'cardapio-celular', alt: 'Cardápio digital onde o cliente vê e usa o saldo de cashback' }, { screen: 'checkout-celular', alt: 'Finalização do pedido no cardápio digital' }] },
+    hero: { desktop: 'ofertas-cashback-desktop', phone: 'checkout-cupom-celular', url: 'painel.eucardapio.com.br/ofertas', alt: 'Regras de cashback no painel e checkout com cupom aplicado e cashback usado' },
     problems: [
       'Cliente pede uma vez e não volta',
       'Desconto em plataforma atrai quem só procura preço',
@@ -364,7 +368,11 @@ export const FEATURE_PAGES = {
       { title: 'Usa na próxima compra', desc: 'O saldo aparece no cardápio digital na hora de pagar.' },
       { title: 'Cupons quando quiser', desc: 'Divulgue um código para datas e dias mais fracos.' },
     ],
-    stepsVisual: { screen: 'checkout-celular', show: 'mobile', alt: 'Finalização do pedido no cardápio digital' },
+    stepsVisual: { phones: [{ screen: 'conta-cashback-celular', alt: 'Conta do cliente no cardápio digital com o saldo de cashback e a validade' }, { screen: 'checkout-cupom-celular', alt: 'Checkout com cupom aplicado e opção de usar o cashback' }] },
+    gallery: [
+      { screen: 'ofertas', show: 'desktop', title: 'Seus cupons', desc: 'Porcentagem, valor fixo ou item grátis, com validade e quantos usos cada um já teve.' },
+      { screen: 'ofertas-cupom', show: 'desktop', title: 'Regras do cupom', desc: 'Categorias ou produtos específicos, valor mínimo da compra, validade e limite de uso.' },
+    ],
     benefits: [
       { icon: 'Repeat', title: 'Motivo para voltar', desc: 'Quem tem saldo para usar volta para usar.' },
       { icon: 'Settings2', title: 'Regras suas', desc: 'Porcentagem, categorias, produtos e validade.' },

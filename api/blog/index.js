@@ -102,16 +102,17 @@ ${n < totalPages ? `<a href="${pagePath(n + 1)}" rel="next">Mais antigos →</a>
 </nav>`
     : ''
 
-  const body = `${breadcrumbHtml(crumbs)}
-<section class="intro">
+  const hero = `<section class="intro">
+${breadcrumbHtml(crumbs)}
 <p class="eyebrow">Blog do Eu Cardápio</p>
 <h1>Dicas para restaurantes que fazem delivery</h1>
 <p>${escapeHtml(DESCRIPTION)}</p>
-</section>
-${items.length
+</section>`
+
+  const body = `${items.length
     ? `<div class="grid">${items.map((a) => articleCard(a, 'h2')).join('\n')}</div>`
     : '<div class="empty"><p>Nenhum artigo publicado ainda. Volte em breve.</p></div>'}
 ${pager}`
 
-  return sendHtml(res, 200, page({ title, description: DESCRIPTION, canonical, schemas, head, body }), CACHE_OK)
+  return sendHtml(res, 200, page({ title, description: DESCRIPTION, canonical, schemas, head, hero, body }), CACHE_OK)
 }

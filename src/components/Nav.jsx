@@ -26,7 +26,8 @@ export default function Nav() {
   const link = 'rounded-full px-3 py-2 text-sm font-medium transition hover:bg-current/5'
 
   return (
-    <header className={cn('fixed inset-x-0 top-0 z-50 transition-all duration-300', light ? 'border-b border-ink/10 bg-paper/90 text-ink backdrop-blur-xl' : 'text-paper')}>
+    <>
+    <header className={cn('fixed inset-x-0 top-0 z-50 transition-all duration-300', open ? 'border-b border-ink/10 bg-paper text-ink' : light ? 'border-b border-ink/10 bg-paper/90 text-ink backdrop-blur-xl' : 'text-paper')}>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:h-[72px] sm:px-8">
         <Link to="/" aria-label="Eu Cardápio — início" className="shrink-0">
           <Logo light={!light} />
@@ -73,8 +74,10 @@ export default function Nav() {
         </div>
       </div>
 
+    </header>
+    {/* Fora do <header>: o desfoque do cabeçalho prende elementos "fixed" dentro dele. */}
       {open && (
-        <div className="fixed inset-x-0 bottom-0 top-16 overflow-y-auto bg-paper px-4 pb-10 pt-2 text-ink lg:hidden">
+        <div className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-paper px-4 pb-10 pt-2 text-ink lg:hidden">
           <p className="eyebrow mt-4 text-ink-soft/60">Funcionalidades</p>
           <div className="mt-2 grid gap-1">
             {FEATURES.map((f) => (
@@ -97,6 +100,6 @@ export default function Nav() {
           </div>
         </div>
       )}
-    </header>
+    </>
   )
 }

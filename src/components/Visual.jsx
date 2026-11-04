@@ -15,6 +15,7 @@ const phoneOf = (p, alt, key) =>
  *   { screen, show, alt, url }   → tela real
  *   { desktop, phone, alt, url } → computador com telefone sobreposto
  *   { phones: [...] }            → dois telefones lado a lado
+ *   { poster, phone, alt }       → cartaz impresso (QR Code) + telefone
  */
 export default function Visual({ v, className }) {
   if (!v) return null
@@ -26,6 +27,16 @@ export default function Visual({ v, className }) {
         {v.phones.map((p, i) => (
           <div key={i} className={cn(i === 1 && 'sm:mt-16')}>{phoneOf(p, p.alt, i)}</div>
         ))}
+      </div>
+    )
+  }
+  if (v.poster) {
+    return (
+      <div className={cn('flex flex-wrap items-center justify-center gap-8 sm:flex-nowrap', className)}>
+        <div className="w-[270px] shrink-0 rotate-[-3deg] rounded-md bg-white p-2 shadow-soft ring-1 ring-ink/10 sm:w-[340px]">
+          <img src={`/telas/${v.poster}.webp`} alt={v.posterAlt} width="800" height="1131" loading="lazy" decoding="async" className="block h-auto w-full" />
+        </div>
+        <div className="sm:mt-10">{phoneOf(v.phone, v.alt, 'p')}</div>
       </div>
     )
   }

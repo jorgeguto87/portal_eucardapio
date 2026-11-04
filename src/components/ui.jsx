@@ -20,7 +20,7 @@ export const cn = (...c) => c.filter(Boolean).join(' ')
 export function Logo({ light = false, className = '' }) {
   return (
     <span className={cn('flex items-center gap-2.5', className)}>
-      <img src="/favicon.png" alt="" width="36" height="36" className="h-8 w-8 shrink-0 rounded-xl sm:h-9 sm:w-9" />
+      <img src="/logo-eucardapio.png" alt="" width="36" height="36" className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
       <span className={cn('whitespace-nowrap font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight min-[400px]:text-xl sm:text-2xl', light ? 'text-paper' : 'text-ink')}>
         Eu Cardápio
       </span>
@@ -67,7 +67,7 @@ export function SectionTitle({ eyebrow, title, desc, dark, center = true, as: H 
     <Reveal className={cn('mb-12 max-w-3xl', center && 'mx-auto text-center')}>
       {eyebrow && <span className={cn('eyebrow mb-3 inline-block', dark ? 'text-ember-light' : 'text-ember-dark')}>{eyebrow}</span>}
       <H className="text-[clamp(1.75rem,5vw,3rem)] font-semibold leading-[1.1]">{title}</H>
-      {desc && <p className={cn('mt-4 text-lg', dark ? 'text-paper/70' : 'text-ink-soft/80')}>{desc}</p>}
+      {desc && <p className={cn('mt-4 text-lg text-pretty', dark ? 'text-paper/70' : 'text-ink-soft/80')}>{desc}</p>}
     </Reveal>
   )
 }
@@ -121,7 +121,7 @@ export function PageHero({ eyebrow, title, subtitle, children }) {
       <div className="mx-auto max-w-5xl px-4 text-center sm:px-8">
         {eyebrow && <span className="glass eyebrow mb-5 inline-block rounded-full px-4 py-1.5 text-ember-light">{eyebrow}</span>}
         <h1 className="text-[clamp(2rem,6vw,3.75rem)] font-semibold leading-[1.08]">{title}</h1>
-        {subtitle && <p className="mx-auto mt-5 max-w-2xl text-lg text-paper/75">{subtitle}</p>}
+        {subtitle && <p className="mx-auto mt-5 max-w-2xl text-pretty text-lg text-paper/75">{subtitle}</p>}
         {children}
       </div>
     </section>

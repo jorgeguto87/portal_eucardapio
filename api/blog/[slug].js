@@ -90,7 +90,7 @@ export default async function handler(req, res) {
     `<meta name="author" content="${escapeHtml(author)}">`,
   ].filter(Boolean).join('\n')
 
-  const body = `<article class="article">
+  const hero = `<div class="head">
 ${breadcrumbHtml(crumbs)}
 ${article.focusKeyword ? `<p class="eyebrow">${escapeHtml(article.focusKeyword)}</p>` : ''}
 <h1>${escapeHtml(article.title)}</h1>
@@ -99,6 +99,9 @@ ${article.excerpt ? `<p class="lead">${escapeHtml(article.excerpt)}</p>` : ''}
     modified && published && modified.slice(0, 10) !== published.slice(0, 10)
       ? ` · atualizado em <time datetime="${modified}">${formatDate(modified)}</time>` : ''
   } · ${readingTime(article.content)} min de leitura</p>
+</div>`
+
+  const body = `<article class="article">
 <div class="prose">
 ${contentHtml}
 </div>
@@ -114,5 +117,5 @@ ${related.length ? `<section class="related" aria-labelledby="rel-t">
 <div class="grid">${related.map((a) => articleCard(a, 'h3')).join('\n')}</div>
 </section>` : ''}`
 
-  return sendHtml(res, 200, page({ title, description, canonical, ogType: 'article', schemas, head, body }), CACHE_OK)
+  return sendHtml(res, 200, page({ title, description, canonical, ogType: 'article', schemas, head, hero, body }), CACHE_OK)
 }
