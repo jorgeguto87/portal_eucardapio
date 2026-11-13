@@ -6,6 +6,18 @@
     { "source": "/blog/:slug", "destination": "/api/blog/:slug" },
     { "source": "/blog/:slug/", "destination": "/api/blog/:slug" },
     { "source": "/sitemap.xml", "destination": "/api/sitemap" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    { "source": "/funcionalidades", "destination": "/funcionalidades.html" },
+    { "source": "/cardapio-digital", "destination": "/cardapio-digital.html" },
+    { "source": "/pedido-whatsapp", "destination": "/pedido-whatsapp.html" },
+    { "source": "/pagamento-online", "destination": "/pagamento-online.html" },
+    { "source": "/qr-code-mesa", "destination": "/qr-code-mesa.html" },
+    { "source": "/sistema-delivery", "destination": "/sistema-delivery.html" },
+    { "source": "/cashback-fidelizacao", "destination": "/cashback-fidelizacao.html" },
+    { "source": "/pedidos-balcao", "destination": "/pedidos-balcao.html" },
+    { "source": "/multiplas-impressoras", "destination": "/multiplas-impressoras.html" },
+    { "source": "/precos", "destination": "/precos.html" },
+    { "source": "/sobre", "destination": "/sobre.html" },
+    { "source": "/contato", "destination": "/contato.html" },
+    { "source": "/((?!api/|assets/).*)", "destination": "/spa.html" }
   ]
 }

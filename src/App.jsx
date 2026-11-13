@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
+import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import ScrollToTop from './components/ScrollToTop'
 import Seo from './components/Seo'
@@ -40,33 +39,33 @@ function HomePage() {
   )
 }
 
+// O roteador fica fora do App: BrowserRouter no navegador (main.jsx) e
+// StaticRouter na geração das páginas prontas (entry-server.jsx).
 export default function App() {
   return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Seo />
-        <div className="min-h-screen overflow-x-clip bg-paper">
-          <Nav />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/funcionalidades" element={<FuncionalidadesPage />} />
-            <Route path="/cardapio-digital" element={<CardapioDigitalPage />} />
-            <Route path="/pedido-whatsapp" element={<PedidoWhatsAppPage />} />
-            <Route path="/pagamento-online" element={<PagamentoOnlinePage />} />
-            <Route path="/qr-code-mesa" element={<QrCodeMesaPage />} />
-            <Route path="/sistema-delivery" element={<SistemaDeliveryPage />} />
-            <Route path="/cashback-fidelizacao" element={<CashbackFidelizacaoPage />} />
-            <Route path="/pedidos-balcao" element={<PedidosBalcaoPage />} />
-            <Route path="/multiplas-impressoras" element={<MultiplasImpressorasPage />} />
-            <Route path="/precos" element={<PrecosPage />} />
-            <Route path="/sobre" element={<SobrePage />} />
-            <Route path="/contato" element={<ContatoPage />} />
-            {/* /blog e /blog/:slug são páginas do servidor (api/blog, ver vercel.json). */}
-          </Routes>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </HelmetProvider>
+    <>
+      <ScrollToTop />
+      <Seo />
+      <div className="min-h-screen overflow-x-clip bg-paper">
+        <Nav />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/funcionalidades" element={<FuncionalidadesPage />} />
+          <Route path="/cardapio-digital" element={<CardapioDigitalPage />} />
+          <Route path="/pedido-whatsapp" element={<PedidoWhatsAppPage />} />
+          <Route path="/pagamento-online" element={<PagamentoOnlinePage />} />
+          <Route path="/qr-code-mesa" element={<QrCodeMesaPage />} />
+          <Route path="/sistema-delivery" element={<SistemaDeliveryPage />} />
+          <Route path="/cashback-fidelizacao" element={<CashbackFidelizacaoPage />} />
+          <Route path="/pedidos-balcao" element={<PedidosBalcaoPage />} />
+          <Route path="/multiplas-impressoras" element={<MultiplasImpressorasPage />} />
+          <Route path="/precos" element={<PrecosPage />} />
+          <Route path="/sobre" element={<SobrePage />} />
+          <Route path="/contato" element={<ContatoPage />} />
+          {/* /blog e /blog/:slug são páginas do servidor (api/blog, ver vercel.json). */}
+        </Routes>
+        <Footer />
+      </div>
+    </>
   )
 }
