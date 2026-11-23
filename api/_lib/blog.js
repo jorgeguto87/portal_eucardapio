@@ -17,7 +17,7 @@ export const SIGNUP_URL = '/#comecar'
 export const OG_IMAGE = `${SITE_URL}/og-image.png`
 export const LOGO_URL = `${SITE_URL}/favicon.png`
 export const PAGE_SIZE = 12
-export const CACHE_OK = 'public, s-maxage=300, stale-while-revalidate=600'
+export const CACHE_OK = 'public, s-maxage=3600, stale-while-revalidate=604800'
 const API_TIMEOUT_MS = 6000
 
 export const apiBase = () =>
